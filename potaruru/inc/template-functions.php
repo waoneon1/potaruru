@@ -22,6 +22,8 @@ function pota_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	$classes[] = 'fixed-header';
+	
 	return $classes;
 }
 add_filter( 'body_class', 'pota_body_classes' );
