@@ -1,0 +1,46 @@
+<?php
+/**
+ * The template Blog - Cards
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Potaruru
+ */
+
+$posts = get_posts(array(
+	'posts_per_page'	=> 4,
+	'post_type' 		=> 'post',
+	'post_status'       => 'publish',
+	'order' 			=> 'DESC'
+));
+?>
+
+<?php foreach ($posts as $key => $post): ?>
+	<?php setup_postdata($post) ?>
+	<div class="col-sm-6">
+		<div class="post post-card">
+			<h2 class="post-title">
+				<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+			</h2>
+			<div class="post-meta">
+				<span><i class="fa fa-clock-o"></i> <?php the_date('F j, Y') ?> 
+				by <a href="profile.html"><?php the_author() ?></a></span>
+				<span><a href="blog-post-carousel.html#comments"><i class="fa fa-comment-o"></i> 6 comments</a></span>
+			</div>
+			
+			<?php if (has_post_thumbnail()): ?>	
+				<div class="post-thumbnail">
+					 <img src="<?php pota_image($post->ID, '750x450') ?>" alt="<?php the_title() ?>">
+				</div>
+			<?php endif ?>
+
+			<?php the_content() ?>
+			<div class="post-footer">
+				<a class="btn btn-secondary" href="<?php the_permalink() ?>" role="button">Read More</a>
+				<a class="float-right p-t-10" href="#"><i class="fa fa-heart-o"></i> 21 likes</a>
+			</div>
+		</div>
+	</div>
+	<?php wp_reset_postdata() ?>
+<?php endforeach ?>

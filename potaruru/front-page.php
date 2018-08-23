@@ -7,10 +7,17 @@
  *
  * @package Potaruru
  */
-?>
 
-<?php get_header() ?>
+get_header(); 
+$type = get_field('type'); ?>
 
-
+<section>
+	<div class="container">
+		<div class="row">
+			<?php get_template_part( 'template/partial/featured', $type ) ?>
+			<?php get_template_part( 'template/partial/blog', 'cards' ) ?>
+		</div>
+	</div>
+</section>
 
 <?php get_footer() ?>

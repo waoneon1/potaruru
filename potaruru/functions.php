@@ -155,6 +155,11 @@ function pota_scripts() {
 add_action( 'wp_enqueue_scripts', 'pota_scripts' );
 
 /**
+ *  Image Size
+ */
+require get_template_directory() . '/inc/pota-image-size.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
