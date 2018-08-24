@@ -14,9 +14,17 @@ function pota_image($field, $size, $type = 'wp', $echo = true ) {
 		$image = get_the_post_thumbnail_url( $field, 'pota_'.$size );
 	}
 
+	if (!$image) {
+		$image = pota_placeholder('pota_'.$size);
+	}
+
 	if ($echo) 
 		echo $image;
 	else 
 		return $image;
 
+}
+
+function pota_placeholder($size) {
+	return get_template_directory_uri() . '/src/img/'.$size.'.jpg';
 }

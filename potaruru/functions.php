@@ -160,6 +160,11 @@ add_action( 'wp_enqueue_scripts', 'pota_scripts' );
 require get_template_directory() . '/inc/pota-image-size.php';
 
 /**
+ *  Post Function
+ */
+require get_template_directory() . '/inc/pota-post-function.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
