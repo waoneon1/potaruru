@@ -18,3 +18,7 @@ function pota_blurb_autofill() {
 		echo '<p>'.$meta_blurb.'</p>';
 	}
 }
+
+function pota_component($comp) {
+	require get_template_directory() . '/template/component/'.$comp.'.php';
+}

@@ -3,6 +3,8 @@ if ( ! function_exists( 'pota_add_image_size' ) ) :
 	function pota_add_image_size() {
 		// blog card
 		add_image_size('pota_750x450', 750, 450, true);
+		// single post
+		add_image_size('pota_945x550', 945, 550, true);
 	}
 endif;
 add_action( 'after_setup_theme', 'pota_add_image_size' );
