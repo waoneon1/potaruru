@@ -20,13 +20,16 @@ function pota_image($field, $size, $type = 'wp', $echo = true ) {
 		$image = pota_placeholder('pota_'.$size);
 	}
 
-	if ($echo) 
-		echo $image;
-	else 
-		return $image;
-
+	if ($echo) echo $image;
+	else return $image;
 }
 
 function pota_placeholder($size) {
 	return get_template_directory_uri() . '/src/img/'.$size.'.jpg';
+}
+
+function pota_post_thumbnail($id, $size, $alt = '') {
+	echo '<div class="post-thumbnail">' .
+		'<img src="' . pota_image($id, $size, 'wp', false) . '" alt="' . $alt . '">' .
+	'</div>';
 }
