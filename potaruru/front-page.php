@@ -18,7 +18,7 @@ $type = get_field('type'); ?>
 <section>
     <div class="container">
         <div class="row col-card-wraper">
-            <?php get_template_part( 'template/partial/blog', 'cards' ) ?>
+            <?php get_template_part( 'template/partial/block', 'blog-cards' ) ?>
         </div>
     </div>
     <div class="container">

@@ -1,16 +1,16 @@
 <?php
 /**
- * The template Blog - Cards
+ * The template Block - Blog Cards
  *
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Potaruru
  */
-
+$post_type = 'post';
 $posts = get_posts(array(
 	'posts_per_page'	=> 4,
-	'post_type' 		=> 'post',
+	'post_type' 		=> $post_type,
 	'post_status'       => 'publish',
 	'order' 			=> 'DESC'
 ));

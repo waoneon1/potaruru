@@ -155,6 +155,11 @@ function pota_scripts() {
 add_action( 'wp_enqueue_scripts', 'pota_scripts' );
 
 /**
+ *	Post Type Products
+ */
+require get_template_directory() . '/inc/post-types/products.php';
+
+/**
  *  Image Size
  */
 require get_template_directory() . '/inc/pota-image-size.php';
@@ -163,6 +168,11 @@ require get_template_directory() . '/inc/pota-image-size.php';
  *  Post Function
  */
 require get_template_directory() . '/inc/pota-post-function.php';
+
+/**
+ *  Primary Navigation Walker
+ */
+require get_template_directory() . '/inc/pota-walker-nav-menu.php';
 
 /**
  * Implement the Custom Header feature.

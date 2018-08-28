@@ -212,3 +212,13 @@ blockquote p {
 .post.post-card p{
 	overflow: hidden;
 }
+
+/*--------------------------------------------------------------
+# Product page
+--------------------------------------------------------------*/
+.product-review-page {
+	margin-top:-31px; 
+}
+.product-review-page section.bg-image.bg-image-sm {
+	z-index: -1;
+}

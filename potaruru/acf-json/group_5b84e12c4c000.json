@@ -1,0 +1,355 @@
+{
+    "key": "group_5b84e12c4c000",
+    "title": "Product Page",
+    "fields": [
+        {
+            "key": "field_5b8508447c879",
+            "label": "Product Page",
+            "name": "product_page",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5b8508797c87a",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Image min 750x450px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 750,
+                    "min_height": 450,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5b8508c97c87b",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "pc": "PC",
+                        "xbox-one": "XBOX One",
+                        "ps4": "PS4",
+                        "steam": "STEAM"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "return_format": "array",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5b8508ee7c87c",
+                    "label": "Release Date",
+                    "name": "release_date",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "F j, Y",
+                    "return_format": "F j, Y",
+                    "first_day": 1
+                },
+                {
+                    "key": "field_5b8509167c87d",
+                    "label": "Blurb",
+                    "name": "blurb",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_5b851e31da9fa",
+                    "label": "Developer",
+                    "name": "developer",
+                    "type": "repeater",
+                    "instructions": "sidebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b851f4498f60",
+                            "label": "Name",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b851f6498f61",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_5b851e47da9fb",
+                    "label": "Publisher",
+                    "name": "publisher",
+                    "type": "repeater",
+                    "instructions": "sidebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b851fcf98f62",
+                            "label": "Name",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b851ff598f63",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_5b851e5dda9fc",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "sidebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_5b851e84da9fd",
+                    "label": "Download Link",
+                    "name": "download_link",
+                    "type": "url",
+                    "instructions": "sidebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5b850aa6edffa",
+            "label": "Product News",
+            "name": "product_news",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5b850acdedffb",
+                    "label": "News",
+                    "name": "news",
+                    "type": "taxonomy",
+                    "instructions": "Posts tags for product news",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "post_tag",
+                    "field_type": "multi_select",
+                    "allow_null": 0,
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "multiple": 0
+                }
+            ]
+        },
+        {
+            "key": "field_5b852e0ec67fb",
+            "label": "Product Guides",
+            "name": "product_guides",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5b852e2dc67fc",
+                    "label": "News",
+                    "name": "news",
+                    "type": "taxonomy",
+                    "instructions": "Posts tags for product guide",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "post_tag",
+                    "field_type": "multi_select",
+                    "allow_null": 0,
+                    "add_term": 1,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "multiple": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product_post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1535455370
+}
