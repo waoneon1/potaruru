@@ -136,16 +136,17 @@ function pota_scripts() {
 
 
 	// vendor js
-	wp_enqueue_script( 'pota-jquery', get_template_directory_uri() . '/src/plugins/jquery/jquery-3.2.1.min.js');
-	wp_enqueue_script( 'pota-popper', get_template_directory_uri() . '/src/plugins/popper/popper.min.js');
-	wp_enqueue_script( 'pota-bootstrap', get_template_directory_uri() . '/src/plugins/bootstrap/js/bootstrap.min.js');
+	wp_enqueue_script( 'pota-jquery', get_template_directory_uri() . '/src/plugins/jquery/jquery-3.2.1.min.js', array(), '', true);
+	wp_enqueue_script( 'pota-popper', get_template_directory_uri() . '/src/plugins/popper/popper.min.js', array(), '', true);
+	wp_enqueue_script( 'pota-bootstrap', get_template_directory_uri() . '/src/plugins/bootstrap/js/bootstrap.min.js', array(), '', true);
 
 	// plugins js
-	wp_enqueue_script( 'pota-lightbox', get_template_directory_uri() . '/src/plugins/lightbox/lightbox.js');
-	wp_enqueue_script( 'pota-owl-carousel', get_template_directory_uri() . '/src/plugins/owl-carousel/js/owl.carousel.min.js');
+	wp_enqueue_script( 'pota-lightbox', get_template_directory_uri() . '/src/plugins/lightbox/lightbox.js', array(), '', true);
+	wp_enqueue_script( 'pota-easing', get_template_directory_uri() . '/src/plugins/easypiechart/jquery.easing.1.3.js', array(), '', true);
+	wp_enqueue_script( 'pota-easypiechart', get_template_directory_uri() . '/src/plugins/easypiechart/jquery.easypiechart.min.js', array(), '', true);
 
 	// theme js
-	wp_enqueue_script( 'pota-theme', get_template_directory_uri() . '/src/js/theme.js');
+	wp_enqueue_script( 'pota-theme', get_template_directory_uri() . '/src/js/theme.js', array(), '', true);
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -168,6 +169,11 @@ require get_template_directory() . '/inc/pota-image-size.php';
  *  Post Function
  */
 require get_template_directory() . '/inc/pota-post-function.php';
+
+/**
+ *  Video Support
+ */
+require get_template_directory() . '/inc/pota-video-support.php';
 
 /**
  *  Primary Navigation Walker

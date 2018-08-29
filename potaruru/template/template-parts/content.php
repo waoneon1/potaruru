@@ -23,7 +23,8 @@
 					<h2 class="post-title"><?php the_title() ?></h2>
 					<?php pota_component( 'post-meta' ) ?>
 					<?php pota_post_thumbnail($post->ID, '945x550', $post->title) ?>
-					<?php the_content() ?>	
+
+					<?php echo do_shortcode('[ajax_load_more nextpage="true" nextpage_urls="true" nextpage_scroll="350:30" nextpage_post_id="'. get_the_ID() .'" pause="true" pause_override="true" button_label="Next Page" images_loaded="true" transition="fade" container_type="div"]'); ?>
 				</div>
 
 				<div class="post-actions">

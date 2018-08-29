@@ -18,8 +18,12 @@ $product = get_field('product_page');
             <h4><?php the_title() ?></h4>
             <span class="meta">Released: <?php echo $product['release_date'] ?></span>
 
-            <h5>Platforms</h5>
-            <span class="badge badge-<?php echo $product['platform']['value'] ?>"><?php echo $product['platform']['label'] ?></span>
+            <?php if ($product['platform']): ?>
+                <h5>Platforms</h5>
+                <?php foreach ($product['platform'] as $platform): ?>
+                    <span class="badge badge-<?php echo $platform['value'] ?>"><?php echo $platform['label'] ?></span>
+                <?php endforeach ?>
+            <?php endif ?>
             
             <?php if ($product['developer']): ?>
                 <h5>Developed</h5>

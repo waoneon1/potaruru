@@ -70,6 +70,40 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script>
+	(function($) {
+		"use strict";
+		$('[data-lightbox]').lightbox({});
+	})(jQuery);
+</script>
+
+<!-- Product Post Type -->
+<?php if (is_singular('product_post')): ?>
+	<script>
+		(function($) {
+			"use strict";
+		    // easyPieChart
+		    $('.chart').easyPieChart({
+		    	barColor: '#5eb404',
+		    	trackColor: '#e3e3e3',
+		    	easing: 'easeOutBounce',
+		    	onStep: function(from, to, percent) {
+		    		$(this.el).find('span').text(Math.round(percent));
+		    	}
+		    });
+		    $('.search-game, .navbar-search .form-control').keyup(function() {
+		    	var search = $(this).val().toLowerCase();
+		    	$.each($('.card-title'), function() {
+		    		if ($(this).text().toLowerCase().indexOf(search) === -1) {
+		    			$(this).parent().parent().parent().hide();
+		    		} else {
+		    			$(this).parent().parent().parent().show();
+		    		}
+		    	});
+		    });
+		})(jQuery);
+	</script>
+<?php endif ?>
 
 </body>
 </html>

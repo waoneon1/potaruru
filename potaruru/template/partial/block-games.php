@@ -36,7 +36,7 @@ $posts = get_posts(array(
 					<a href="<?php the_permalink() ?>">
 						<img src="<?php pota_image($pp['image'], '360x235', 'acf') ?>" class="card-img-top" alt="<?php the_title() ?>">
 					</a>
-					<div class="badge badge-<?php echo $b['value'] ?>"><?php echo $b['label'] ?></div>
+					<!-- <div class="badge badge-<?php //echo $b['value'] ?>"><?php //echo $b['label'] ?></div> -->
 					<div class="card-likes">
 						<a href="#"><?php echo rand(10,100) ?></a>
 					</div>

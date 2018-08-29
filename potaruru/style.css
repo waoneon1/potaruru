@@ -222,3 +222,13 @@ blockquote p {
 .product-review-page section.bg-image.bg-image-sm {
 	z-index: -1;
 }
+
+/*--------------------------------------------------------------
+# Video List
+--------------------------------------------------------------*/
+.video-play .video-play-icon.pota-video-play-icon i {
+	width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: rgba(0, 0, 0, 0.8);
+}

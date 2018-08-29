@@ -1,6 +1,7 @@
 <?php
 if ( ! function_exists( 'pota_add_image_size' ) ) :
 	function pota_add_image_size() {
+		add_image_size('pota_1280x720', 1280, 720, true); // Product reveiw & all Product
 		add_image_size('pota_750x450', 750, 450, true); // block - blog card
 		add_image_size('pota_945x550', 945, 550, true); // single post
 		add_image_size('pota_360x235', 360, 235, true); // block - games
