@@ -161,6 +161,7 @@ blockquote p {
 }
 .post-single img {
 	height: auto;
+	width: 100%;
 }
 .post-single figure {
     margin-bottom: 0px;
