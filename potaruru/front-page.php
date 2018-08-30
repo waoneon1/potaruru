@@ -23,7 +23,7 @@ $type = get_field('type'); ?>
     </div>
     <div class="container">
         <div class="row">
-            <?php echo do_shortcode( '[ajax_load_more container_type="div" css_classes="container" post_type="post" posts_per_page="2" offset="4" transition_container_classes="col-card-wraper"]' ) ?>
+            <?php echo do_shortcode( '[ajax_load_more container_type="div" css_classes="container" post_type="post" posts_per_page="2" offset="7" transition_container_classes="col-card-wraper"]' ) ?>
         </div>
     </div>
 </section>

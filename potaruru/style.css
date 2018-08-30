@@ -150,6 +150,43 @@ blockquote {
 blockquote p {
     margin-bottom: 0;
 }
+.post-single img {
+	height: auto;
+}
+.post-single figure {
+    margin-bottom: 0px;
+    height: auto;
+    max-width: 100%;
+}
+/* Category Page */
+.category-line {
+	text-align: center;
+	margin: 0 auto 29px auto;
+}
+.category-line h2 {
+	font-size: 25px;
+	margin-bottom: 20px;
+	position: relative;
+}
+.category-line h2::before {
+	border-top: 1px solid #000;
+	content: "";
+	margin: 0 auto;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
+.category-line span {
+	padding: 0 11px;
+    font-weight: normal;
+    font-size: 38px;
+    margin-top: calc(55px - 38px / 2);
+    margin-bottom: calc(55px - 38px / 2);
+    background: #fff;
+}
 /*--------------------------------------------------------------
 ## Comment
 --------------------------------------------------------------*/

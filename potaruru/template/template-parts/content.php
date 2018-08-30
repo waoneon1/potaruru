@@ -24,7 +24,8 @@
 					<?php pota_component( 'post-meta' ) ?>
 					<?php pota_post_thumbnail($post->ID, '945x550', $post->title) ?>
 
-					<?php echo do_shortcode('[ajax_load_more nextpage="true" nextpage_urls="true" nextpage_scroll="350:30" nextpage_post_id="'. get_the_ID() .'" pause="true" pause_override="true" button_label="Next Page" images_loaded="true" transition="fade" container_type="div"]'); ?>
+					<?php echo do_shortcode('[ajax_load_more nextpage="true" nextpage_urls="true" nextpage_scroll="0:30"  pause="true" pause_override="true"  nextpage_post_id="'. get_the_ID() .'" transition="fade" container_type="div" images_loaded="true" button_label="Next Page"]'); ?>
+
 				</div>
 
 				<div class="post-actions">

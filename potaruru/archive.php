@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
  * The template for displaying archive pages
  *
@@ -8,46 +8,44 @@
  */
 
 get_header();
+
+if (is_author()){ 
+	$author = get_the_author_meta('ID');
+	$param = 'author="'.$author.'"';	
+} 
+
+if (is_category()){ 
+	$cat = get_category( get_query_var( 'cat' ) );
+	$param = 'category="'.$cat->slug.'"';	
+} 
+
+if (is_tag()){ 
+	$tag = get_query_var('tag'); 
+	$param = 'category="'.$tag.'"';	
+}
+
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<section class="p-b-0">
+	<div class="container">
+		<div class="category-line">
+			<h2><span><?php echo single_cat_title() ?></span></h2>
+			<p><?php echo category_description() ?></p>
+		</div>
+	</div>
+</section>
 
-		<?php if ( have_posts() ) : ?>
+<section>
+    <div class="container">
+        <div class="row col-card-wraper">
+            <?php get_template_part( 'template/partial/block', 'blog-cards' ) ?>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <?php echo do_shortcode( '[ajax_load_more container_type="div" css_classes="container" post_type="post" posts_per_page="2" offset="4" transition_container_classes="col-card-wraper" '.$param.']' ) ?>
+        </div>
+    </div>
+</section>	
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer();

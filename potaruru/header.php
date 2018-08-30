@@ -30,8 +30,8 @@
 				<div class="navbar">
 					<div class="navbar-left">
 						<a class="navbar-toggle"><i class="fa fa-bars"></i></a>
-						<a href="<?php site_url() ?>" class="logo">
-							<img src="<?php echo get_template_directory_uri() ?>/src/img/logo.png" alt="Gameforest - Game Theme HTML">
+						<a href="<?php echo get_home_url() ?>" class="logo">
+							<img src="<?php echo get_template_directory_uri() ?>/src/img/logo.png" alt="Potaruru">
 						</a>
 						<nav class="nav">
 							<?php

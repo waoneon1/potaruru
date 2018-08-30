@@ -31,8 +31,7 @@
 
         <?php pota_blurb_autofill() ?>
         <div class="post-footer">
-            <a class="btn btn-secondary" href="<?php the_permalink() ?>" role="button">Read More</a> 
-            <a class="float-right p-t-10" href="#"><i class="fa fa-heart-o"></i> 21 likes</a>
+            <a class="btn btn-secondary float-right p-t-10" href="<?php the_permalink() ?>" role="button">Read More</a> 
         </div>
     </div>
 </div>

@@ -7,13 +7,28 @@
  *
  * @package Potaruru
  */
+
 $post_type = 'post';
-$posts = get_posts(array(
+
+$arg = array(
 	'posts_per_page'	=> 4,
 	'post_type' 		=> $post_type,
 	'post_status'       => 'publish',
 	'order' 			=> 'DESC'
-));
+);
+
+// front page
+if (is_front_page()) {
+	$arg['offset'] = 3;
+}
+
+// category page
+if (is_category()) {
+	$cat_ID = get_query_var('cat');
+	$arg['category'] = $cat_ID;
+}
+
+$posts = get_posts($arg);
 ?>
 
 <?php foreach ($posts as $key => $post): ?>
@@ -40,8 +55,7 @@ $posts = get_posts(array(
 
 			<?php pota_blurb_autofill() ?>
 			<div class="post-footer">
-				<a class="btn btn-secondary" href="<?php the_permalink() ?>" role="button">Read More</a> 
-				<a class="float-right p-t-10" href="#"><i class="fa fa-heart-o"></i> 21 likes</a>
+				<a class="float-right p-t-10 btn btn-secondary" href="<?php the_permalink() ?>" role="button">Read More</a> 
 			</div>
 		</div>
 	</div>
