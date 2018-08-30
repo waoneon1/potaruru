@@ -156,6 +156,13 @@ function pota_scripts() {
 add_action( 'wp_enqueue_scripts', 'pota_scripts' );
 
 /**
+ *	Acf Option
+ */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
+
+/**
  *	Post Type Products
  */
 require get_template_directory() . '/inc/post-types/products.php';

@@ -12,58 +12,66 @@
 ?>
 
 	</div><!-- #content -->
-
+	
+	<?php $middle_section = get_field('middle_section', 'option') ?>
 	<footer id="footer">
-	  <div class="container">
-	    <div class="row">
-	      <div class="col-sm-12 col-md-5">
-	        <h4 class="footer-title">About Gameforest</h4>
-	        <p>Gameforest is a Bootstrap Gaming theme. Build your own gaming theme with gameforest and you will love to use it. Clean and pure coded HTML, CSS files what is included in your downloaded package.</p>
-	        <p>Attached more then 60+ HTML pages and customized elements. Copy and paste your favourite section or build your own so easily.</p>
-	      </div>
-	      <div class="col-sm-12 col-md-3">
-	        <h4 class="footer-title">Platform</h4>
-	        <div class="row">
-	          <div class="col">
-	            <ul>
-	              <li><a href="#">Playstation 4</a></li>
-	              <li><a href="#">Xbox One</a></li>
-	              <li><a href="#">PC</a></li>
-	              <li><a href="#">Steam</a></li>
-	            </ul>
-	          </div>
-	          <div class="col">
-	            <ul>
-	              <li><a href="games.html">Games</a></li>
-	              <li><a href="reviews.html">Reviews</a></li>
-	              <li><a href="videos.html">Videos</a></li>
-	              <li><a href="forums.html">Forums</a></li>
-	            </ul>
-	          </div>
-	        </div>
-	      </div>
-	      <div class="col-sm-12 col-md-4">
-	        <h4 class="footer-title">Subscribe</h4>
-	        <p>Subscribe to our newsletter and get notification when new games are available.</p>
-	        <div class="input-group m-t-25">
-	          <input type="text" class="form-control" placeholder="Email">
-	          <span class="input-group-btn">
-	          <button class="btn btn-primary" type="button">Subscribe</button>
-	        </span>
-	        </div>
-	      </div>
-	    </div>
-	    <div class="footer-bottom">
-	      <div class="footer-social">
-	        <a href="https://facebook.com/yakuthemes" target="_blank" data-toggle="tooltip" title="facebook"><i class="fa fa-facebook"></i></a>
-	        <a href="https://twitter.com/yakuthemes" target="_blank" data-toggle="tooltip" title="twitter"><i class="fa fa-twitter"></i></a>
-	        <a href="https://steamcommunity.com/id/yakuzi" target="_blank" data-toggle="tooltip" title="steam"><i class="fa fa-steam"></i></a>
-	        <a href="https://www.twitch.tv/" target="_blank" data-toggle="tooltip" title="twitch"><i class="fa fa-twitch"></i></a>
-	        <a href="https://www.youtube.com/user/1YAKUZI" target="_blank" data-toggle="tooltip" title="youtube"><i class="fa fa-youtube"></i></a>
-	      </div>
-	      <p>Copyright &copy; 2017 <a href="https://themeforest.net/item/gameforest-responsive-gaming-html-theme/5007730" target="_blank">Gameforest</a>. All rights reserved.</p>
-	    </div>
-	  </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-5">
+					<h4 class="footer-title"><?php the_field('left_section_title', 'option') ?></h4>
+					<?php the_field('left_section', 'option') ?>
+				</div>
+				<div class="col-sm-12 col-md-3">
+					<h4 class="footer-title"><?php the_field('middle_section_title', 'option') ?></h4>
+					<div class="row">
+						
+						<?php if ( $middle_section['type'] == 'platform'): ?>
+							<?php $platforms	= $middle_section['platforms'] ?>
+							<?php $pl_count 	= count($middle_section['platforms']) ?>
+							<?php $pl_md 		= round(($pl_count/2), 0, PHP_ROUND_HALF_UP) ?>
+							<?php if ($platforms): ?>
+								<div class="col">
+									<ul>
+										<?php foreach ($platforms as $key => $platform): ?>
+											<?php if ($pl_md == $key): ?>
+												</ul></div><div class="col"><ul>
+											<?php endif ?>
+											<li><a href="<?php echo $platform['link'] ?>"><?php echo $platform['text'] ?></a></li>
+										<?php endforeach ?>
+									</ul>
+								</div>
+							<?php endif ?>
+						<?php endif ?>
+						<?php  ?>
+						<?php if ( $middle_section['type'] == 'text'): ?>
+							<?php echo $middle_section['content']; ?>
+						<?php endif ?>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<h4 class="footer-title">Subscribe</h4>
+
+					<?php the_field('subscribe_section', 'option')  ?>
+
+					<div class="input-group m-t-25">
+						<input type="text" class="form-control" placeholder="Email">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="button">Subscribe</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="footer-social">
+					<?php foreach (get_field('social', 'option') as $social): ?>
+						<a href="<?php echo $social['link'] ?>" target="_blank" data-toggle="tooltip" title="<?php echo $social['title'] ?>">
+							<i class="fa fa-<?php echo $social['title'] ?>"></i>
+						</a>
+					<?php endforeach ?>
+				</div>
+				<?php the_field('copyright', 'option') ?>
+			</div>
+		</div>
 	</footer> <!-- #footer -->
 
 
