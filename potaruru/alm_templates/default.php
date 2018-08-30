@@ -21,11 +21,15 @@
         
         <?php if (has_post_thumbnail()): ?> 
             <div class="post-thumbnail">
-                 <img src="<?php pota_image($post->ID, '750x450') ?>" alt="<?php the_title() ?>">
+                <a href="<?php the_permalink() ?>">
+                    <img src="<?php pota_image($post->ID, '750x450') ?>" alt="<?php the_title() ?>">
+                </a>
             </div>
         <?php else: ?>
             <div class="post-thumbnail">
-                 <img src="<?php echo pota_placeholder('pota_750x450') ?>" alt="<?php the_title() ?>">
+                <a href="<?php the_permalink() ?>">
+                    <img src="<?php echo pota_placeholder('pota_750x450') ?>" alt="<?php the_title() ?>">
+                </a>
             </div>
         <?php endif ?>
 

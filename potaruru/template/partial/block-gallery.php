@@ -20,7 +20,6 @@ $gallerys = $product_images['gallery'];
 					<a href="<?php pota_image($gallery, '1280x720', 'acf') ?>" data-lightbox="{&quot;gallery&quot;: &quot;uncharted&quot;}">
 						<img src="<?php pota_image($gallery, '320x180', 'acf') ?>" alt="">
 					</a>
-					<a class="figure-likes" href="#">32</a>
 				</div>
 			</figure>
 		</div>

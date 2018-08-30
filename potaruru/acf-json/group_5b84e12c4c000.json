@@ -58,7 +58,10 @@
                         "pc": "PC",
                         "xbox-one": "XBOX One",
                         "ps4": "PS4",
-                        "steam": "STEAM"
+                        "switch": "Switch",
+                        "android": "Android",
+                        "ios": "iOS",
+                        "vr": "VR"
                     },
                     "default_value": [],
                     "allow_null": 0,
@@ -81,8 +84,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "display_format": "F j, Y",
-                    "return_format": "F j, Y",
+                    "display_format": "j F Y",
+                    "return_format": "j F Y",
                     "first_day": 1
                 },
                 {
@@ -233,7 +236,7 @@
                     "placeholder": "",
                     "maxlength": "",
                     "rows": "",
-                    "new_lines": ""
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_5b851e84da9fd",
@@ -241,6 +244,22 @@
                     "name": "download_link",
                     "type": "url",
                     "instructions": "sidebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5b877059d5ea5",
+                    "label": "Buy Link",
+                    "name": "buy_link",
+                    "type": "url",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -340,10 +359,34 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5b861f05e5e3a",
-                    "label": "Review Text",
-                    "name": "review_text",
-                    "type": "textarea",
+                    "key": "field_5b877e84660fe",
+                    "label": "Background Image",
+                    "name": "background_image",
+                    "type": "image",
+                    "instructions": "Image min 1280x720px | Use product image if left empty",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 1280,
+                    "min_height": 720,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5b877f08660ff",
+                    "label": "Background Position",
+                    "name": "background_position",
+                    "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -352,11 +395,22 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                    "choices": {
+                        "top": "Top",
+                        "bottom": "Bottom",
+                        "center": "Center",
+                        "left": "Left",
+                        "right": "Right"
+                    },
+                    "default_value": [
+                        "center"
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
                 },
                 {
                     "key": "field_5b8621c4e5e43",
@@ -377,83 +431,6 @@
                     "step": "",
                     "prepend": "",
                     "append": "%"
-                },
-                {
-                    "key": "field_5b862037e5e3b",
-                    "label": "Feature",
-                    "name": "feature",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b86206ae5e3c",
-                            "label": "Gameplay",
-                            "name": "gameplay",
-                            "type": "range",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "min": "",
-                            "max": "",
-                            "step": "",
-                            "prepend": "",
-                            "append": "%"
-                        },
-                        {
-                            "key": "field_5b86209de5e3d",
-                            "label": "Graphics",
-                            "name": "graphics",
-                            "type": "range",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "min": "",
-                            "max": "",
-                            "step": "",
-                            "prepend": "",
-                            "append": "%"
-                        },
-                        {
-                            "key": "field_5b8620c6e5e3e",
-                            "label": "Sounds",
-                            "name": "sounds",
-                            "type": "range",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "min": "",
-                            "max": "",
-                            "step": "",
-                            "prepend": "",
-                            "append": "%"
-                        }
-                    ]
                 },
                 {
                     "key": "field_5b8620ede5e3f",
@@ -647,7 +624,7 @@
             "sub_fields": [
                 {
                     "key": "field_5b861c93e5e32",
-                    "label": "VIdeo List",
+                    "label": "Video List",
                     "name": "list",
                     "type": "repeater",
                     "instructions": "Video list",
@@ -661,7 +638,7 @@
                     "collapsed": "",
                     "min": 0,
                     "max": 0,
-                    "layout": "row",
+                    "layout": "table",
                     "button_label": "Add More Video",
                     "sub_fields": [
                         {
@@ -698,63 +675,6 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
-                        },
-                        {
-                            "key": "field_5b861d27e5e34",
-                            "label": "Date",
-                            "name": "date",
-                            "type": "date_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "display_format": "d\/m\/Y",
-                            "return_format": "d\/m\/Y",
-                            "first_day": 1
-                        },
-                        {
-                            "key": "field_5b861d86e5e35",
-                            "label": "View",
-                            "name": "view",
-                            "type": "number",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 0,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "min": 0,
-                            "max": "",
-                            "step": 1
-                        },
-                        {
-                            "key": "field_5b861dd0e5e36",
-                            "label": "Blurb",
-                            "name": "blurb",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": "",
-                            "new_lines": ""
                         }
                     ]
                 }
@@ -807,8 +727,8 @@
                     "taxonomy": "post_tag",
                     "field_type": "multi_select",
                     "allow_null": 0,
-                    "add_term": 1,
-                    "save_terms": 0,
+                    "add_term": 0,
+                    "save_terms": 1,
                     "load_terms": 0,
                     "return_format": "id",
                     "multiple": 0
@@ -835,5 +755,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1535526540
+    "modified": 1535608031
 }

@@ -63,11 +63,20 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	margin: 0 0 1.5em;
 	/* Make sure select elements fit in widgets. */
 }
-
 .widget select {
 	max-width: 100%;
 }
-
+.widget-game .widget-block .widget-item .badge {
+    margin-bottom: 5px;
+}
+/*widget review*/
+.review .review-bad p:before, .review .review-good p:before {
+	margin-left: -22px;
+    margin-right: 10px;
+}
+.review .review-title {
+	font-size: 32px;
+}
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -158,6 +167,9 @@ blockquote p {
     height: auto;
     max-width: 100%;
 }
+.post-single figcaption {
+	padding: 5px 0px 20px;
+}
 /* Category Page */
 .category-line {
 	text-align: center;
@@ -186,6 +198,21 @@ blockquote p {
     margin-top: calc(55px - 38px / 2);
     margin-bottom: calc(55px - 38px / 2);
     background: #fff;
+}
+/*--------------------------------------------------------------
+# Badge
+--------------------------------------------------------------*/
+.badge-switch {
+	background-color: #cd201f;
+}
+.badge-android {
+	background-color: #8bc34a;
+}
+.badge-ios {
+	background-color: #00AFF0;
+}
+.badge-vr {
+	background-color: #6441a5;
 }
 /*--------------------------------------------------------------
 ## Comment
@@ -257,7 +284,7 @@ blockquote p {
 	margin-top:-31px; 
 }
 .product-review-page section.bg-image.bg-image-sm {
-	z-index: -1;
+	/*z-index: -1;*/
 }
 
 /*--------------------------------------------------------------

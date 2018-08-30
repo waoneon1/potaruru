@@ -12,7 +12,8 @@ $get = ($_GET['ppage'] == 'guides') ? 'guides' : 'news';
 $pn = get_field('product_'.$get);
 $post_type = 'post';
 
-if ($pn) {
+
+if ($pn['news']) {
     $product_news = new WP_Query(
         array(
             'tag__in' 		=> $pn['news'],
@@ -36,8 +37,10 @@ if ($pn) {
     		</div>
     	<?php endforeach ?>
     	<?php wp_reset_postdata() ?>
+    <?php else: ?>
+        <?php get_template_part( 'template/partial/alert', 'post' );  ?>
     <?php endif ?>
 <?php 
 } else {
-    echo "No Post";
+    get_template_part( 'template/partial/alert', 'post' );
 } ?>

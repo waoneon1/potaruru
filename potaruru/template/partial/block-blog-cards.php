@@ -50,7 +50,9 @@ $posts = get_posts($arg);
 			<?php $image = has_post_thumbnail() ? pota_image($post->ID, '750x450', 'wp', false) : pota_placeholder('pota_750x450'); ?>
 
 			<div class="post-thumbnail">
-				 <img src="<?php echo $image ?>" alt="<?php the_title() ?>">
+				<a href="<?php the_permalink() ?>">
+					<img src="<?php echo $image ?>" alt="<?php the_title() ?>">
+				</a>
 			</div>
 
 			<?php pota_blurb_autofill() ?>

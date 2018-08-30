@@ -16,7 +16,7 @@ $product = get_field('product_page');
         <div class="overlay"></div>
         <div class="widget-item">
             <h4><?php the_title() ?></h4>
-            <span class="meta">Released: <?php echo $product['release_date'] ?></span>
+            <span class="meta">Released Date: <?php echo $product['release_date'] ?></span>
 
             <?php if ($product['platform']): ?>
                 <h5>Platforms</h5>
@@ -26,7 +26,7 @@ $product = get_field('product_page');
             <?php endif ?>
             
             <?php if ($product['developer']): ?>
-                <h5>Developed</h5>
+                <h5>Developer</h5>
                 <ul>
                    <?php foreach ($product['developer'] as $dev): ?>
                        <li><a href="<?php echo $dev['link'] ?>" target="_blank"><?php echo $dev['name'] ?></a></li>
@@ -35,7 +35,7 @@ $product = get_field('product_page');
             <?php endif ?>
 
             <?php if ($product['publisher']): ?>
-                <h5>Published</h5>
+                <h5>Publisherx</h5>
                 <ul>
                     <?php foreach ($product['publisher'] as $publisher): ?>
                          <li><a href="<?php echo $publisher['link'] ?>" target="_blank"><?php echo $publisher['name'] ?></a></li>
@@ -43,8 +43,16 @@ $product = get_field('product_page');
                 </ul>
             <?php endif ?>
 
-            <p><?php echo $product['description'] ?></p>
-            <a href="<?php $product['download_link'] ?>" class="btn btn-outline-default btn-block">Download <i class="fa fa-arrow-circle-down"></i></a>
+            <?php echo $product['description'] ?>
+
+            <?php if ($product['download_link']): ?>
+                <a href="<?php echo $product['download_link'] ?>" target="_blank" class="btn btn-outline-default btn-block">Download <i class="fa fa-arrow-circle-down"></i></a>
+            <?php endif ?>
+            
+            <?php if ($product['buy_link']): ?>
+                <a href="<?php echo $product['buy_link'] ?>" target="_blank" class="btn btn-outline-default btn-block">Buy <i class="fa fa-cart-arrow-down"></i></a>
+            <?php endif ?>
+            
         </div>
     </div>
 </div>

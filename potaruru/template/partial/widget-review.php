@@ -8,27 +8,31 @@
  * @package Potaruru
  */
 
-$product        = get_field('product_page'); 
-$prod_review    = get_field('product_reviews'); 
+$product            = get_field('product_page'); 
+$prod_review        = get_field('product_reviews'); 
+$background_image   = ($prod_review['background_image']) ? $prod_review['background_image'] : $product['image'];
 ?>
 
-<section class="bg-image bg-image-sm" style="background-image: url('<?php pota_image($product['image'], '1280x720', 'acf') ?>')">
+<section class="bg-image bg-image-sm" style="
+        background-image: url('<?php pota_image($background_image, '1280x720', 'acf') ?>');
+        background-position: <?php echo $prod_review['background_position'] ?>;
+    ">
     <div class="overlay-dark"></div>
     <div class="container">
         <div class="review">
             <div class="row">
-                <div class="col-12 col-sm-10">
-                    <h2 class="review-title"><?php the_title() ?></h2>
-                    <p><?php echo $prod_review['review_text'] ?></p>
+                <div class="col-12 col-sm-12">
+                    <h2 class="review-title text-center"><?php the_title() ?></h2>
+                    <!-- <p><?php echo $prod_review['review_text'] ?></p> -->
                 </div>
-                <div class="col-12 col-sm-2">
+                <div class="col-12 col-sm-2" style="position: absolute; right: 0">
                     <?php $percentage = $prod_review['percentage'] ?>
                     <?php echo '<div class="chart easypiechart" data-percent="'.$percentage.'" data-scale-color="#e3e3e3"><span>'.$percentage.'</span>%</div>' ?>
                 </div>
             </div>
             <div class="row m-t-20">
 
-                <div class="col-lg-5">
+               <!--  <div class="col-lg-5">
                     <?php $gameplay = $prod_review['feature']['gameplay'] ?>
                     <?php $graphics = $prod_review['feature']['graphics'] ?>
                     <?php $sounds   = $prod_review['feature']['sounds'] ?>
@@ -50,26 +54,28 @@ $prod_review    = get_field('product_reviews');
                             <span class="sr-only"><?php echo $sounds ?>% Complete</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-7">
+                <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-12 col-sm-6">
+                        <div class="col-12 col-sm-2"></div>
+                        <div class="col-12 col-sm-4">
                             <div class="review-good">
-                                <h5>Positive:</h5>
+                                <h5>Pros:</h5>
                                 <?php foreach ($prod_review['positive']  as $positive): ?>
                                     <p><?php echo $positive['+'] ?></p>
                                 <?php endforeach ?>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6">
+                        <div class="col-12 col-sm-4">
                             <div class="review-bad">
-                                <h5>Negative:</h5>
+                                <h5>Cons:</h5>
                                 <?php foreach ($prod_review['negative']  as $negative): ?>
                                     <p><?php echo $negative['-'] ?></p>
                                 <?php endforeach ?>
                             </div>
                         </div>
+                        <div class="col-12 col-sm-2"></div>
                     </div>
                 </div>
             </div>
