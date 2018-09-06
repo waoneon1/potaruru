@@ -14,7 +14,7 @@ $background_image   = ($prod_review['background_image']) ? $prod_review['backgro
 ?>
 
 <section class="bg-image bg-image-sm" style="
-        background-image: url('<?php pota_image($background_image, '1280x720', 'acf') ?>');
+        background-image: url('<?php pota_image($background_image, '800x450', 'acf') ?>');
         background-position: <?php echo $prod_review['background_position'] ?>;
     ">
     <div class="overlay-dark"></div>
@@ -25,7 +25,7 @@ $background_image   = ($prod_review['background_image']) ? $prod_review['backgro
                     <h2 class="review-title text-center"><?php the_title() ?></h2>
                     <!-- <p><?php echo $prod_review['review_text'] ?></p> -->
                 </div>
-                <div class="col-12 col-sm-2" style="position: absolute; right: 0">
+                <div class="col-12 col-lg-2 col-md-2 col-sm-12 pota-percentage">
                     <?php $percentage = $prod_review['percentage'] ?>
                     <?php echo '<div class="chart easypiechart" data-percent="'.$percentage.'" data-scale-color="#e3e3e3"><span>'.$percentage.'</span>%</div>' ?>
                 </div>

@@ -99,7 +99,7 @@
 </script>
 
 <!-- Product Post Type -->
-<?php if (is_singular('product_post')): ?>
+<?php if (is_singular('product_post') || is_page_template( 'template-product-page.php' )): ?>
 	<script>
 		(function($) {
 			"use strict";

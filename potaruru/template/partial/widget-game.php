@@ -8,11 +8,16 @@
  * @package Potaruru
  */
 
-$product = get_field('product_page'); 
+$product            = get_field('product_page'); 
+$prod_review        = get_field('product_reviews'); 
+$background_image   = ($prod_review['background_image']) ? $prod_review['background_image'] : $product['image'];
 ?>
 
 <div class="widget widget-game">
-    <div class="widget-block" style="background-image: url('<?php pota_image($product['image'], '750x450', 'acf') ?>')">
+    <div class="widget-block" style="
+        background-image: url('<?php pota_image($background_image, '750x450', 'acf') ?>');
+        background-position: <?php echo $prod_review['background_position'] ?>;
+    ">
         <div class="overlay"></div>
         <div class="widget-item">
             <h4><?php the_title() ?></h4>
@@ -35,7 +40,7 @@ $product = get_field('product_page');
             <?php endif ?>
 
             <?php if ($product['publisher']): ?>
-                <h5>Publisherx</h5>
+                <h5>Publisher</h5>
                 <ul>
                     <?php foreach ($product['publisher'] as $publisher): ?>
                          <li><a href="<?php echo $publisher['link'] ?>" target="_blank"><?php echo $publisher['name'] ?></a></li>
@@ -45,10 +50,24 @@ $product = get_field('product_page');
 
             <?php echo $product['description'] ?>
 
-            <?php if ($product['download_link']): ?>
-                <a href="<?php echo $product['download_link'] ?>" target="_blank" class="btn btn-outline-default btn-block">Download <i class="fa fa-arrow-circle-down"></i></a>
+            <?php if ($product['download_android']): ?>
+                <a href="<?php echo $product['download_android'] ?>" target="_blank" class="btn-block pota-btn-download" style="text-align: center;">
+                    <?php pota_btn_googleplay() ?>
+                </a>
             <?php endif ?>
             
+            <?php if ($product['download_ios']): ?>
+                <a href="<?php echo $product['download_ios'] ?>" target="_blank" class="btn-block pota-btn-download" style="text-align: center;">
+                    <?php pota_btn_appstore() ?>
+                </a>
+            <?php endif ?>
+            
+            <?php if ($product['download_link']): ?>
+                <a href="<?php echo $product['download_link'] ?>" target="_blank" class="btn btn-outline-default btn-block">
+                    Download <i class="fa fa-arrow-circle-o-down"></i>
+                </a>
+            <?php endif ?>
+
             <?php if ($product['buy_link']): ?>
                 <a href="<?php echo $product['buy_link'] ?>" target="_blank" class="btn btn-outline-default btn-block">Buy <i class="fa fa-cart-arrow-down"></i></a>
             <?php endif ?>

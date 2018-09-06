@@ -147,6 +147,7 @@ function pota_scripts() {
 
 	// theme js
 	wp_enqueue_script( 'pota-theme', get_template_directory_uri() . '/src/js/theme.js', array(), '', true);
+	wp_enqueue_script( 'pota-js', get_template_directory_uri() . '/js/pota.js', array(), '', true);
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -173,9 +174,10 @@ require get_template_directory() . '/inc/post-types/products.php';
 require get_template_directory() . '/inc/pota-image-size.php';
 
 /**
- *  Post Function
+ *  Post Type Function
  */
 require get_template_directory() . '/inc/pota-post-function.php';
+require get_template_directory() . '/inc/pota-product-function.php';
 
 /**
  *  Video Support

@@ -12,20 +12,40 @@ $subnav = array(
     'news',
     'reviews',
     'images',
-    'videos',
-    'guides',
+    'videos'
 );
+
+if (get_field('product_guides')['news']) {
+    $subnav[] = 'guide';
+}
+
 $page = $_GET['ppage'];
 $page = (in_array($page, $subnav)) ? $_GET['ppage'] : 'news';
 
+$subnav_title = array(
+    'news' => 'News',
+    'reviews' => 'Review',
+    'images' => 'Image',
+    'videos' => 'Video',
+    'guides' => 'Guide'
+)
 ?>
 <!-- --------------------Subtitle------------------- -->
 <section class="toolbar toolbar-links" data-fixed="true">
     <div class="container">
         <h5><?php the_title() ?></h5>
-        <ul class="toolbar-nav m-r-25 hidden-md-down">
+        <div class="dropdown float-right hidden-md-up">
+            <a class="btn btn-secondary btn-icon float-right" href="#" data-toggle="dropdown" role="button"><i class="fa fa-bars"></i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <?php foreach ($subnav as $nav): ?>
+                    <?php $nav_val = $subnav_title[$nav] ?>
+                    <a class="dropdown-item <?php echo ($page == $nav) ? 'active' : '' ?>" href="?ppage=<?php echo $nav ?>"><?php echo $nav_val ?></a>
+                <?php endforeach ?>            
+            </div>
+        </div>
+        <ul class="toolbar-nav m-r-25 hidden-sm-down">
             <?php foreach ($subnav as $nav): ?>
-                <?php $nav_val = ucwords($nav) ?>
+                <?php $nav_val = $subnav_title[$nav] ?>
                 <li <?php echo ($page == $nav) ? 'class="active"' : '' ?> >
                     <a href="?ppage=<?php echo $nav ?>"><?php echo $nav_val ?></a>
                 </li>

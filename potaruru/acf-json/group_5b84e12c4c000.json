@@ -22,7 +22,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "Image min 1280x720px",
+                    "instructions": "Image min 800x450px",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -33,8 +33,8 @@
                     "return_format": "array",
                     "preview_size": "thumbnail",
                     "library": "all",
-                    "min_width": 1280,
-                    "min_height": 720,
+                    "min_width": 800,
+                    "min_height": 450,
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
@@ -87,25 +87,6 @@
                     "display_format": "j F Y",
                     "return_format": "j F Y",
                     "first_day": 1
-                },
-                {
-                    "key": "field_5b8509167c87d",
-                    "label": "Blurb",
-                    "name": "blurb",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
                 },
                 {
                     "key": "field_5b851e31da9fa",
@@ -239,9 +220,41 @@
                     "new_lines": "wpautop"
                 },
                 {
-                    "key": "field_5b851e84da9fd",
+                    "key": "field_5b90e56781a24",
                     "label": "Download Link",
                     "name": "download_link",
+                    "type": "url",
+                    "instructions": "sidebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5b851e84da9fd",
+                    "label": "Download Android",
+                    "name": "download_android",
+                    "type": "url",
+                    "instructions": "sidebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5b90b60630b34",
+                    "label": "Download IOS",
+                    "name": "download_ios",
                     "type": "url",
                     "instructions": "sidebar",
                     "required": 0,
@@ -363,7 +376,7 @@
                     "label": "Background Image",
                     "name": "background_image",
                     "type": "image",
-                    "instructions": "Image min 1280x720px | Use product image if left empty",
+                    "instructions": "Image min 800x450px | Use product image if left empty",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -374,8 +387,8 @@
                     "return_format": "array",
                     "preview_size": "thumbnail",
                     "library": "all",
-                    "min_width": 1280,
-                    "min_height": 720,
+                    "min_width": 800,
+                    "min_height": 450,
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
@@ -755,5 +768,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1535608031
+    "modified": 1536225862
 }

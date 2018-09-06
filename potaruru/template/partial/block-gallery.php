@@ -14,11 +14,11 @@ $gallerys = $product_images['gallery'];
 
 <div class="row row-3 figure-effect">
 	<?php foreach ($gallerys as $gallery): ?>
-		<div class="col-12 col-sm-6 col-md-4">
+		<div class="col-12 col-sm-6 col-md-6">
 			<figure>
 				<div class="figure-img">
-					<a href="<?php pota_image($gallery, '1280x720', 'acf') ?>" data-lightbox="{&quot;gallery&quot;: &quot;uncharted&quot;}">
-						<img src="<?php pota_image($gallery, '320x180', 'acf') ?>" alt="">
+					<a href="<?php pota_image($gallery, '800x450', 'acf') ?>" data-lightbox="{&quot;gallery&quot;: &quot;uncharted&quot;}">
+						<img src="<?php pota_image($gallery, '360x235', 'acf') ?>" alt="" style="width: 100%">
 					</a>
 				</div>
 			</figure>
