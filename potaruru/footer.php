@@ -17,51 +17,64 @@
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-5">
-					<h4 class="footer-title"><?php the_field('left_section_title', 'option') ?></h4>
-					<?php the_field('left_section', 'option') ?>
-				</div>
-				<div class="col-sm-12 col-md-3">
-					<h4 class="footer-title"><?php the_field('middle_section_title', 'option') ?></h4>
-					<div class="row">
-						
-						<?php if ( $middle_section['type'] == 'platform'): ?>
-							<?php $platforms	= $middle_section['platforms'] ?>
-							<?php $pl_count 	= count($middle_section['platforms']) ?>
-							<?php $pl_md 		= round(($pl_count/2), 0, PHP_ROUND_HALF_UP) ?>
-							<?php if ($platforms): ?>
-								<div class="col">
-									<ul>
-										<?php foreach ($platforms as $key => $platform): ?>
-											<?php if ($pl_md == $key): ?>
-												</ul></div><div class="col"><ul>
-											<?php endif ?>
-											<li><a href="<?php echo $platform['link'] ?>"><?php echo $platform['text'] ?></a></li>
-										<?php endforeach ?>
-									</ul>
-								</div>
+				<?php $margin_sos = true ?>
+				<?php if (get_field('left_section_title', 'option')): ?>
+					<?php $margin_sos = false ?>
+					<div class="col-sm-12 col-md-5">
+						<h4 class="footer-title"><?php the_field('left_section_title', 'option') ?></h4>
+						<?php the_field('left_section', 'option') ?>
+					</div>
+				<?php endif ?>
+				
+				<?php if (get_field('middle_section_title', 'option')): ?>
+					<?php $margin_sos = false ?>
+					<div class="col-sm-12 col-md-3">
+						<h4 class="footer-title"><?php the_field('middle_section_title', 'option') ?></h4>
+						<div class="row">
+							
+							<?php if ( $middle_section['type'] == 'platform'): ?>
+								<?php $platforms	= $middle_section['platforms'] ?>
+								<?php $pl_count 	= count($middle_section['platforms']) ?>
+								<?php $pl_md 		= round(($pl_count/2), 0, PHP_ROUND_HALF_UP) ?>
+								<?php if ($platforms): ?>
+									<div class="col">
+										<ul>
+											<?php foreach ($platforms as $key => $platform): ?>
+												<?php if ($pl_md == $key): ?>
+													</ul></div><div class="col"><ul>
+												<?php endif ?>
+												<li><a href="<?php echo $platform['link'] ?>"><?php echo $platform['text'] ?></a></li>
+											<?php endforeach ?>
+										</ul>
+									</div>
+								<?php endif ?>
 							<?php endif ?>
-						<?php endif ?>
-						<?php  ?>
-						<?php if ( $middle_section['type'] == 'text'): ?>
-							<?php echo $middle_section['content']; ?>
-						<?php endif ?>
+							<?php  ?>
+							<?php if ( $middle_section['type'] == 'text'): ?>
+								<?php echo $middle_section['content']; ?>
+							<?php endif ?>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-12 col-md-4">
-					<h4 class="footer-title">Subscribe</h4>
+				<?php endif ?>
+				
+				<?php if (get_field('subscribe_section', 'option')): ?>
+					<?php $margin_sos = false ?>
+					<div class="col-sm-12 col-md-4">
+						<h4 class="footer-title">Subscribe</h4>
 
-					<?php the_field('subscribe_section', 'option')  ?>
+						<?php the_field('subscribe_section', 'option')  ?>
 
-					<div class="input-group m-t-25">
-						<input type="text" class="form-control" placeholder="Email">
-						<span class="input-group-btn">
-							<button class="btn btn-primary" type="button">Subscribe</button>
-						</span>
+						<div class="input-group m-t-25">
+							<input type="text" class="form-control" placeholder="Email">
+							<span class="input-group-btn">
+								<button class="btn btn-primary" type="button">Subscribe</button>
+							</span>
+						</div>
 					</div>
-				</div>
+				<?php endif ?>
+			
 			</div>
-			<div class="footer-bottom">
+			<div class="footer-bottom" <?php $margin_sos ? 'style="margin-top: 0"' : '' ?> >
 				<div class="footer-social">
 					<?php foreach (get_field('social', 'option') as $social): ?>
 						<a href="<?php echo $social['link'] ?>" target="_blank" data-toggle="tooltip" title="<?php echo $social['title'] ?>">
