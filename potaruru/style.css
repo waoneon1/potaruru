@@ -39,21 +39,27 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .logged-in .nav.nav-responsive {
 	top: calc(50px + 32px);
 }
-@media screen and (max-width: 782px){
+/*@media screen and (max-width: 782px){
 	.logged-in.fixed-header #header{
 	    top: 46px;
 	}
 	.logged-in .nav.nav-responsive {
 		top: calc(50px + 46px);
 	}
-}
-
+}*/
 @media screen and (max-width: 600px){
 	.logged-in.fixed-header #header{
-	    top: 0;
+		top: 46px;
 	}
-	.logged-in .nav.nav-responsive {
+	.logged-in .nav.nav-responsive{
+		top: calc(50px + 46px);
+	}
+
+	.logged-in.fixed-header.header-scroll #header{
 		top: 0;
+	}
+	.logged-in.header-scroll .nav.nav-responsive{
+		top: 50px;
 	}
 }
 /*--------------------------------------------------------------
@@ -67,7 +73,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	max-width: 100%;
 }
 .widget-game .widget-block .widget-item .badge {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 /*widget review*/
 .review .review-bad p:before, .review .review-good p:before {
@@ -76,6 +82,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 .review .review-title {
 	font-size: 32px;
+}
+.pota-btn-download {
+	opacity: .65;
+}
+.pota-btn-download:hover {
+	opacity: 1;
 }
 /*--------------------------------------------------------------
 # Accessibility
@@ -170,6 +182,11 @@ blockquote p {
 }
 .post-single figcaption {
 	padding: 5px 0px 20px;
+}
+.post-single ul {
+	list-style-type: disc;
+	padding-left: 40px;
+	margin: 0 0 16px 0;
 }
 /* Category Page */
 .category-line {
@@ -267,17 +284,23 @@ blockquote p {
 .post.post-card .post-header>div:last-child {
     padding-left: inherit;
 }
-
 .col-card-wraper {
-	display: flex;
+	display: block;
 }
 .col-card {
-	display: flex;
+	display: block;
 }
 .post.post-card p{
 	overflow: hidden;
 }
-
+@media (min-width: 576px) {
+	.col-card-wraper {
+		display: flex;
+	}
+	.col-card {
+		display: flex;
+	}
+}
 /*--------------------------------------------------------------
 # Product page
 --------------------------------------------------------------*/
@@ -287,7 +310,15 @@ blockquote p {
 .product-review-page section.bg-image.bg-image-sm {
 	/*z-index: -1;*/
 }
-
+.pota-percentage {
+	position: block; 
+}
+@media (min-width: 768px) {
+	.pota-percentage {
+		position: absolute; 
+		right: 0
+	}
+}
 /*--------------------------------------------------------------
 # Video List
 --------------------------------------------------------------*/

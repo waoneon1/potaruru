@@ -9,10 +9,11 @@
  */
 
 get_header(); 
-$type = get_field('type'); ?>
+$type = get_field('type'); 
+?>
 
 <div class="container">
-	<div class="row"><?php get_template_part( 'template/partial/featured', $type ) ?></div>
+	<div class="row"><?php get_template_part( 'template/partial/feature', 'banner-'.$type ) ?></div>
 </div>
 
 <section>
