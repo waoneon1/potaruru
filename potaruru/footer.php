@@ -74,7 +74,7 @@
 				<?php endif ?>
 			
 			</div>
-			<div class="footer-bottom" <?php $margin_sos ? 'style="margin-top: 0"' : '' ?> >
+			<div class="footer-bottom" style="margin-top: 0">
 				<div class="footer-social">
 					<?php foreach (get_field('social', 'option') as $social): ?>
 						<a href="<?php echo $social['link'] ?>" target="_blank" data-toggle="tooltip" title="<?php echo $social['title'] ?>">
