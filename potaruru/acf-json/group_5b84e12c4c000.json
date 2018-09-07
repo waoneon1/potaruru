@@ -42,36 +42,6 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5b8508c97c87b",
-                    "label": "Platform",
-                    "name": "platform",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "pc": "PC",
-                        "xbox-one": "XBOX One",
-                        "ps4": "PS4",
-                        "switch": "Switch",
-                        "android": "Android",
-                        "ios": "iOS",
-                        "vr": "VR"
-                    },
-                    "default_value": [],
-                    "allow_null": 0,
-                    "multiple": 1,
-                    "ui": 1,
-                    "ajax": 0,
-                    "return_format": "array",
-                    "placeholder": ""
-                },
-                {
                     "key": "field_5b8508ee7c87c",
                     "label": "Release Date",
                     "name": "release_date",
@@ -768,5 +738,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1536225862
+    "modified": 1536303454
 }

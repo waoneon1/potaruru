@@ -5,7 +5,7 @@
  * Licensed under Themeforest Standard (https://themeforest.net/licenses/standard)
  */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.5;
@@ -32,7 +32,7 @@ h4,
 h5,
 h6 {
   color: #4f4f4f;
-  font-family: "Roboto", sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-weight: 500;
   margin: 0 0 10px 0;
 }
@@ -5136,7 +5136,7 @@ input[type="file"] {
 }
 
 .tooltip {
-  font-family: "Roboto", sans-serif;
+  font-family: "Rajdhani", sans-serif;
 }
 
 .tooltip.show {

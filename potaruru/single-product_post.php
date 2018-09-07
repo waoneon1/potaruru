@@ -16,7 +16,7 @@ $subnav = array(
 );
 
 if (get_field('product_guides')['news']) {
-    $subnav[] = 'guide';
+    $subnav[] = 'guides';
 }
 
 $page = $_GET['ppage'];

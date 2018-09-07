@@ -11,6 +11,7 @@
 $product            = get_field('product_page'); 
 $prod_review        = get_field('product_reviews'); 
 $background_image   = ($prod_review['background_image']) ? $prod_review['background_image'] : $product['image'];
+$platforms          = get_the_terms($post, 'platforms');
 ?>
 
 <div class="widget widget-game">
@@ -23,11 +24,11 @@ $background_image   = ($prod_review['background_image']) ? $prod_review['backgro
             <h4><?php the_title() ?></h4>
             <span class="meta">Released Date: <?php echo $product['release_date'] ?></span>
 
-            <?php if ($product['platform']): ?>
+            <?php if ($platforms): ?>
                 <h5>Platforms</h5>
-                <?php foreach ($product['platform'] as $platform): ?>
-                    <span class="badge badge-<?php echo $platform['value'] ?>"><?php echo $platform['label'] ?></span>
-                <?php endforeach ?>
+                <?php array_map(function($arr){
+                    echo '<span class="badge badge-'.$arr->slug.'">'.$arr->name.'</span>';
+                }, $platforms); ?>
             <?php endif ?>
             
             <?php if ($product['developer']): ?>

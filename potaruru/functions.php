@@ -123,6 +123,7 @@ function pota_scripts() {
 	
 	// Vendor
 	wp_enqueue_style( 'pota-googleapis', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
+	wp_enqueue_style( 'pota-rajdhani', 'https://fonts.googleapis.com/css?family=Rajdhani' );
 	wp_enqueue_style( 'pota-font-awesome', get_template_directory_uri() . '/src/plugins/font-awesome/css/font-awesome.min.css' );
 	wp_enqueue_style( 'pota-bootstrap', get_template_directory_uri() . '/src/plugins/bootstrap/css/bootstrap.min.css' );
 	wp_enqueue_style( 'pota-animate', get_template_directory_uri() . '/src/plugins/animate/animate.min.css' );
@@ -131,7 +132,8 @@ function pota_scripts() {
 	wp_enqueue_style( 'pota-owl-carousel', get_template_directory_uri() . '/src/plugins/owl-carousel/css/owl.carousel.min.css' );
 
 	//Theme
-	wp_enqueue_style( 'pota-theme', get_template_directory_uri() . '/src/css/theme.min.css' );
+	wp_enqueue_style( 'pota-custom', get_template_directory_uri() . '/src/css/custom.css' );
+	wp_enqueue_style( 'pota-theme', get_template_directory_uri() . '/src/css/theme.css' );
 	wp_enqueue_style( 'pota-style', get_stylesheet_uri() );
 
 
@@ -155,13 +157,18 @@ function pota_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'pota_scripts' );
-
+function pota_scripts_admin(){
+    wp_register_style( 'admin-style', get_template_directory_uri() . '/admin-style.css' );
+    wp_enqueue_style( 'admin-style' );
+}
+add_action('admin_enqueue_scripts', 'pota_scripts_admin');
 /**
  *	Acf Option
  */
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 }
+
 
 /**
  *	Post Type Products
@@ -183,6 +190,11 @@ require get_template_directory() . '/inc/pota-product-function.php';
  *  Video Support
  */
 require get_template_directory() . '/inc/pota-video-support.php';
+
+/**
+ *  View Count
+ */
+require get_template_directory() . '/inc/pota-view-count.php';
 
 /**
  *  Primary Navigation Walker
@@ -208,11 +220,3 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
-

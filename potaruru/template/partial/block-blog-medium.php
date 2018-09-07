@@ -8,23 +8,38 @@
  * @package Potaruru
  */
 
-$get = ($_GET['ppage'] == 'guides') ? 'guides' : 'news';
-$pn = get_field('product_'.$get);
-$post_type = 'post';
+// On Product CPT
+if (get_post_type() == 'product_post') {
+    $get = ($_GET['ppage'] == 'guides') ? 'guides' : 'news';
+    $pn = get_field('product_'.$get);
+    $post_type = 'post';
 
+    $have_posts = $pn['news'];
+    $args = array(
+        'tag__in'       => $pn['news'],
+        'post_type'     => $post_type,
+        'post_status'   => 'publish',
+        'order'         => 'DESC'
+    );
+}
 
-if ($pn['news']) {
-    $product_news = new WP_Query(
-        array(
-            'tag__in' 		=> $pn['news'],
-            'post_type'		=> $post_type,
-            'post_status'	=> 'publish',
-            'order' 		=> 'DESC'
-        )
-    ); ?>
+// On Page
+if (is_search()) {
+    $have_posts = ($_GET['s'] != '');
+    $args = array(
+        's'             => $_GET['s'],
+        'post_type'     => $post_type,
+        'post_status'   => 'publish',
+        'order'         => 'DESC'
+    );
+}
 
-    <?php if ($product_news->have_posts()): ?>
-    	<?php foreach ($product_news->posts as $key => $post): ?>
+$query = new WP_Query($args);
+
+if ($have_posts) {
+
+    if ($query->have_posts()): ?>
+    	<?php foreach ($query->posts as $key => $post): ?>
     		<?php setup_postdata($post) ?>
     		<!-- post -->
     		<div class="post post-md">
@@ -38,9 +53,10 @@ if ($pn['news']) {
     	<?php endforeach ?>
     	<?php wp_reset_postdata() ?>
     <?php else: ?>
-        <?php get_template_part( 'template/partial/alert', 'post' );  ?>
+        <?php get_template_part( 'template/partial/alert', 'search' );  ?>
     <?php endif ?>
 <?php 
+
 } else {
-    get_template_part( 'template/partial/alert', 'post' );
+    get_template_part( 'template/partial/alert', 'search' );
 } ?>

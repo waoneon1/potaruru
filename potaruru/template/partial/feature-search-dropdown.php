@@ -1,3 +1,11 @@
+<?php 
+	$terms = get_terms( array(
+	    'taxonomy' => 'platforms',
+	    'hide_empty' => true,
+	) );
+	$filter = (isset($_GET['filter']) && $_GET['filter']) ? $_GET['filter'] : 'all';
+?>
+
 <div class="toolbar-custom">
 	<form method="post" class="float-left cold-12 col-sm-6 p-l-0 p-r-10">
 		<div class="form-group input-icon-right">
@@ -6,13 +14,27 @@
 		</div>
 	</form>
 	<div class="dropdown float-left">
-		<button class="btn btn-default" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">All Platform <i class="fa fa-caret-down"></i></button>
+		<button class="btn btn-default" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			<?php if ($filter == 'all') {
+				echo 'All Platform';
+			} else {
+				foreach ($terms as $term) {
+					if (($filter == $term->slug)){
+						echo  $term->name;
+					}
+				}
+			} ?>
+			<i class="fa fa-caret-down"></i>
+		</button>
 		<div class="dropdown-menu">
-			<a class="dropdown-item active" href="#">All Platform</a>
-			<a class="dropdown-item" href="#">Playstation 4</a>
-			<a class="dropdown-item" href="#">Xbox One</a>
-			<a class="dropdown-item" href="#">Origin</a>
-			<a class="dropdown-item" href="#">Steam</a>
+			<a class="dropdown-item <?php $filter == 'all' ? 'active' : '' ?>" href="?">All Platform</a>
+			<?php array_map(
+				function($arr) {
+					$filter = (isset($_GET['filter']) && $_GET['filter']) ? $_GET['filter'] : 'all';
+					$href = ($filter == $arr->slug) ? '' : 'href="?filter='.$arr->slug.'"';
+					echo '<a class="dropdown-item" '.($filter == $arr->slug ? 'active' : '').' '.$href.'>'.$arr->name.'</a>';
+				}, $terms
+			) ?>
 		</div>
 	</div>
 </div>  

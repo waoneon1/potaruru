@@ -25,8 +25,8 @@ function pota_image($field, $size, $type = 'wp', $echo = true ) {
 	else return $image;
 }
 
-function pota_placeholder($size) {
-	return get_template_directory_uri() . '/src/img/'.$size.'.jpg';
+function pota_placeholder($name) {
+	return get_template_directory_uri() . '/src/img/'.$name.'.jpg';
 }
 
 function pota_post_thumbnail($id, $size, $alt = '', $link = '') {

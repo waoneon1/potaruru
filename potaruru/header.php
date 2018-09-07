@@ -55,7 +55,7 @@
 			</div>
 			<div class="navbar-search">
 				<div class="container">
-					<form method="get">
+					<form method="get" action="<?php echo esc_url( home_url( '/' ) ) ?>" >
 						<input type="text" class="form-control" placeholder="Search..." name="s">
 						<i class="fa fa-times close"></i>
 					</form>

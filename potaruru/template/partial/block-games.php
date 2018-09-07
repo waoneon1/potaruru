@@ -7,27 +7,40 @@
  *
  * @package Potaruru
  */
-$post_type = 'product_post';
-$posts_master['latest'] = get_posts(array(
-	'posts_per_page'	=> 3,
-	'post_type' 		=> $post_type,
-	'post_status'       => 'publish',
-	'order' 			=> 'ASC',
-	'orderby' 			=> 'meta_value_num',
-	'meta_key'			=> 'release_date'
-));
 
-$posts_master['random'] = get_posts(array(
-	'posts_per_page'	=> -1,
-	'post_type' 		=> $post_type,
-	'post_status'       => 'publish',
-	'orderby' 			=> 'rand',
-	'exclude'			=> array_map(function($arr){
-								return $arr->ID;
-							}, $posts_master['latest']
-						)
-));
+// if page template 
+if (is_page_template( 'template-product-page.php' )) {
+	$post_type 	= 'product_post';
+	$tax 		= 'platforms';
+	$filter 	= (isset($_GET['filter']) && $_GET['filter']) ? $_GET['filter'] : false;
+	$args_tax	= array(array(
+		'taxonomy' => $tax,
+		'field' => 'slug',
+		'terms' => $filter 
+	));
 
+	$args_latest = array(
+		'posts_per_page'	=> 3,
+		'post_type' 		=> $post_type,
+		'post_status'       => 'publish',
+		'order' 			=> 'ASC',
+		'orderby' 			=> 'meta_value_num',
+		'meta_key'			=> 'release_date'
+	);
+	if ($filter) $args_latest['tax_query'] = $args_tax;
+	$posts_master['latest'] = get_posts($args_latest);
+
+	$args_random = array(
+		'posts_per_page'	=> -1,
+		'post_type' 		=> $post_type,
+		'post_status'       => 'publish',
+		'orderby' 			=> 'rand',
+		'exclude'			=> array_map(function($arr) { return $arr->ID; }, $posts_master['latest'])
+	);
+	if ($filter) $args_random['tax_query'] = $args_tax;
+	$posts_master['random'] = get_posts($args_random);
+
+}
 ?>
 
 <div class="row col-card-wraper">
@@ -35,7 +48,7 @@ $posts_master['random'] = get_posts(array(
 		<?php foreach ($posts as $key => $post): ?>
 			<?php setup_postdata($post) ?>
 			<?php $pp 	= get_field("product_page") ?>
-			<?php $b 	= $pp['platform']; ?>
+			<?php $b 	= $pp['platform'] ?>
 			
 			<div class="col-12 col-sm-6 col-md-4 col-card" 
 
