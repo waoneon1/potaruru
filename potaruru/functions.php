@@ -220,3 +220,13 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+
+add_filter('oembed_dataparse','oembed_youtube_add_wrapper',10,3);
+function oembed_youtube_add_wrapper($return, $data, $url) {
+    if ($data->provider_name == 'YouTube') {
+        return "<div class='videowrapper'>{$return}</div>";
+    } else {
+        return $return;
+    }
+}

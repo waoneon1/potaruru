@@ -44,13 +44,15 @@
 							?>
 						</nav>
 					</div>
-					<div class="nav navbar-right">
-						<ul>
-							<li class="hidden-xs-down"><a href="login.html">Login</a></li>
-							<li class="hidden-xs-down"><a href="register.html">Register</a></li>
-							<li><a data-toggle="search"><i class="fa fa-search"></i></a></li>
-						</ul>
-					</div>
+						<div class="nav navbar-right">
+							<ul>
+								<?php if (1==2): ?>
+								<li class="hidden-xs-down"><a href="login.html">Login</a></li>
+								<li class="hidden-xs-down"><a href="register.html">Register</a></li>
+								<?php endif ?>
+								<li><a data-toggle="search"><i class="fa fa-search"></i></a></li>
+							</ul>
+						</div>
 				</div>
 			</div>
 			<div class="navbar-search">

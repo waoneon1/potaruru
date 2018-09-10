@@ -25,7 +25,7 @@ if (is_page_template( 'template-product-page.php' )) {
 		'post_status'       => 'publish',
 		'order' 			=> 'ASC',
 		'orderby' 			=> 'meta_value_num',
-		'meta_key'			=> 'release_date'
+		'meta_key'			=> 'product_page_release_date'
 	);
 	if ($filter) $args_latest['tax_query'] = $args_tax;
 	$posts_master['latest'] = get_posts($args_latest);

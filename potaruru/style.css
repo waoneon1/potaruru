@@ -284,7 +284,9 @@ blockquote p {
 .post.post-card .post-header>div:last-child {
     padding-left: inherit;
 }
-
+.post-card .post-title {
+    min-height: 50px;
+}
 .col-card-wraper {
 	display: block;
 }
@@ -294,6 +296,7 @@ blockquote p {
 .post.post-card p{
 	overflow: hidden;
 }
+
 @media (min-width: 576px) {
 	.col-card-wraper {
 		display: flex;
@@ -320,6 +323,15 @@ blockquote p {
 		right: 0
 	}
 }
+@media (max-width: 767px) {
+	.pota-subnav.toolbar {
+		margin-bottom: 0;
+		padding-top: 10px;
+	}
+	.toolbar ul.toolbar-nav {
+	    float: none;
+	}
+}
 /*--------------------------------------------------------------
 # Video List
 --------------------------------------------------------------*/
@@ -329,13 +341,53 @@ blockquote p {
     line-height: 60px;
     background: rgba(0, 0, 0, 0.8);
 }
-
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 /*--------------------------------------------------------------
 # Typograph
 --------------------------------------------------------------*/
-.post.post-card p, 
+/*.post.post-card p, */
 #featured .post-title,
 .post-md .post-block p,
 .toolbar ul.toolbar-nav li a {
 	font-weight: 700;
+}
+.post.post-single .post-title {
+    font-size: 45px;
+}
+@media (max-width: 576px){
+	.post.post-single .post-title {
+	    line-height: 45px;
+	}
+}
+.post.post-single p {
+    font-size: 20px;
+    color: #4f4f5a;
+}
+.post.post-single h2 {
+    font-size: 40px;
+    color: #4f4f5a;
+}
+#header .nav > ul > li > a, 
+#header .nav > ul > li > a {
+	font-size: 20px;
+	font-weight: 700;
+}
+.card .card-block .card-title {
+	font-size: 25px;
+	line-height: 25px;
 }
