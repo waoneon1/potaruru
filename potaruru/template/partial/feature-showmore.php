@@ -9,7 +9,7 @@
  */
 
 $ft = get_posts(array(
-	'posts_per_page'	=> 5,
+	'posts_per_page'	=> 6,
 	'post_type' 		=> 'post',
 	'post_status'       => 'publish',
 	'orderby' 			=> 'rand',
@@ -27,39 +27,18 @@ $ft = get_posts(array(
 <div class="row">
 	<div id="featured" class="featured-latest">
 		<?php foreach ($ft as $key => $value): ?>
-			<?php if ($key < 3): ?>
-				<div class="primary col-md-4 featured-wrap float-left">
-					<a href="<?php the_permalink($value->ID) ?>" class="featured-article" rel="bookmark">
-						<div class="featured-article-image-container">
-							<img src="<?php pota_image($value->ID, '750x450') ?>" 
-								alt="<?php echo $value->ID->post_title ?>">
-							<div class="featured-article-image-container-gradient"></div>
-							<div class="article-title">
-								<span class="post-title"><?php echo $value->post_title ?></span>
-							</div>
+			<div class="primary col-md-4 featured-wrap float-left">
+				<a href="<?php the_permalink($value->ID) ?>" class="featured-article" rel="bookmark">
+					<div class="featured-article-image-container">
+						<img src="<?php pota_image($value->ID, '750x450') ?>" 
+							alt="<?php echo $value->ID->post_title ?>">
+						<div class="featured-article-image-container-gradient"></div>
+						<div class="article-title">
+							<span class="post-title"><?php echo $value->post_title ?></span>
 						</div>
-					</a>
-				</div>
-			<?php else: ?>
-				<?php if ($key == 3): ?>
-					<div class="primary col-md-2 featured-wrap float-left"></div>
-				<?php endif ?>
-				<div class="primary col-md-4 featured-wrap float-left">
-					<a href="<?php the_permalink($value->ID) ?>" class="featured-article" rel="bookmark">
-						<div class="featured-article-image-container">
-							<img src="<?php pota_image($value->ID, '750x450') ?>" 
-								alt="<?php echo $value->ID->post_title ?>">
-							<div class="featured-article-image-container-gradient"></div>
-							<div class="article-title">
-								<span class="post-title"><?php echo $value->post_title ?></span>
-							</div>
-						</div>
-					</a>
-				</div>
-				<?php if ($key == 4): ?>
-					<div class="primary col-md-2 featured-wrap float-left"></div>
-				<?php endif ?>
-			<?php endif ?>
+					</div>
+				</a>
+			</div>
 		<?php endforeach ?>
 	</div>
 </div>

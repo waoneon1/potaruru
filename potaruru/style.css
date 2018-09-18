@@ -215,7 +215,7 @@ blockquote p {
     font-size: 38px;
     margin-top: calc(55px - 38px / 2);
     margin-bottom: calc(55px - 38px / 2);
-    background: #fff;
+    background: #fafafa;
 }
 /*--------------------------------------------------------------
 # Badge
@@ -362,7 +362,6 @@ blockquote p {
 --------------------------------------------------------------*/
 /*.post.post-card p, */
 #featured .post-title,
-.post-md .post-block p,
 .toolbar ul.toolbar-nav li a {
 	font-weight: 700;
 }
@@ -374,7 +373,8 @@ blockquote p {
 	    line-height: 45px;
 	}
 }
-.post.post-single p {
+.post.post-single p,
+.post {
     font-size: 20px;
     color: #4f4f5a;
 }

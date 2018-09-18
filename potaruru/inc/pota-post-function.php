@@ -22,3 +22,14 @@ function pota_blurb_autofill() {
 function pota_component($comp) {
 	require get_template_directory() . '/template/component/'.$comp.'.php';
 }
+
+// search result only post
+if (!is_admin()) {
+	function pota_search_filter($query) {
+		if ($query->is_search) {
+			$query->set('post_type', 'post');
+		}
+		return $query;
+	}
+	add_filter('pre_get_posts','pota_search_filter');
+}

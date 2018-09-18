@@ -26,10 +26,9 @@ $videos = get_field('product_video')['list'];
 				</div>
 				<!-- Mobile -->
 				<div class="card-img hidden-md-up">
-					<div class="video-play" data-src="<?php echo pota_video_support::render_video($video['url'], true) ?>">
-						<div class="embed-responsive embed-responsive-16by9">
-							<img class="embed-responsive-item" src="<?php echo pota_video_support::get_thumb_url($video['url']) ?>">
-							<div class="video-play-icon"><i class="fa fa-play"></i></div>
+					<div class="video-play">
+						<div class="videowrapper">
+							<iframe width="560" height="315" src="<?php echo pota_video_support::render_video($video['url']) ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>

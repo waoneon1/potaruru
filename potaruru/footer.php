@@ -77,7 +77,7 @@
 			<div class="footer-bottom" style="margin-top: 0">
 				<div class="footer-social">
 					<?php foreach (get_field('social', 'option') as $social): ?>
-						<a href="<?php echo $social['link'] ?>" target="_blank" data-toggle="tooltip" title="<?php echo $social['title'] ?>">
+						<a href="<?php echo $social['link'] ?>" target="_blank" title="<?php echo $social['title'] ?>">
 							<i class="fa fa-<?php echo $social['title'] ?>"></i>
 						</a>
 					<?php endforeach ?>
