@@ -11,7 +11,7 @@
 
 <div class="addthis_inline_share_toolbox_6yzw widget widget-share pota-share" data-fixed="widget" 
 data-url="<?php the_permalink() ?>"
-data-title="<?php the_title() ?> – <?php bloginfo('name') ?>">
+data-title="<?php the_title() ?> – <?php bloginfo('name') ?>"
 style="clear: both; margin-left: auto;">
     <div class="widget-block">
         <div id="atstbx2" aria-labelledby="at-723b4dd1-a28f-4e5e-affc-851c7a12c5b6" role="region">
