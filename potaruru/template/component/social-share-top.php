@@ -1,8 +1,8 @@
-<div class="addthis_inline_share_toolbox social-share pota-share" 
+<div class="addthis_inline_share_toolbox_o0h6 social-share pota-share" 
 data-url="<?php the_permalink() ?>"
-data-title="<?php the_title() ?> – <?php bloginfo('name') ?>" 
+data-title="<?php the_title() ?> – <?php bloginfo('name') ?>"
 style="clear: both; margin-left: auto;">
-    <div id="atstbx3" aria-labelledby="at-f5b9b64a-4002-4fa6-bb84-3de7b13b54a2" role="region">
+    <div id="atstbx" aria-labelledby="at-feb2ad0c-6459-40ab-bdcd-8fe338202adf" role="region">
         <div class="at-share-btn-elements">
             
             <a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-facebook 

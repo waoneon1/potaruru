@@ -126,5 +126,8 @@
 	</script>
 <?php endif ?>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools --> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ba1dde5736f4214"></script>
+
 </body>
 </html>

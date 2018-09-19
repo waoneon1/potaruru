@@ -217,8 +217,25 @@ blockquote p {
     margin-bottom: calc(55px - 38px / 2);
     background: #fafafa;
 }
+.social-share.pota-share span {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    line-height: unset;
+    font-size: 15px;
+    position: relative;
+    display: inline-block;
+    top: 0;
+}
+.widget-share.pota-share .widget-block span {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
 /*--------------------------------------------------------------
-# Badge
+# Badge & Button
 --------------------------------------------------------------*/
 .badge-switch {
 	background-color: #cd201f;
@@ -231,6 +248,17 @@ blockquote p {
 }
 .badge-vr {
 	background-color: #6441a5;
+}
+.btn-lineme {
+    background-color: rgb(0, 195, 0);
+    color: #fff;
+}
+.btn-whatsapp,
+.btn-whatsapp:hover,
+.btn-whatsapp:focus,
+.btn-whatsapp:active {
+    background-color: rgb(77, 194, 71);
+    color: #fff;
 }
 /*--------------------------------------------------------------
 ## Comment
@@ -304,6 +332,22 @@ blockquote p {
 	.col-card {
 		display: flex;
 	}
+}
+/*--------------------------------------------------------------
+# Profile Page
+--------------------------------------------------------------*/
+.pota-user-profile > div {
+    display: table-cell;
+    vertical-align: top;
+}
+.pota-user-profile .post-thumbnail {
+    width: 200px;
+}
+.pota-user-profile .post-block {
+    padding-left: 20px;
+}
+.pota-user-profile h1 {
+    font-weight: 700;
 }
 /*--------------------------------------------------------------
 # Product page

@@ -21,12 +21,27 @@ $arg = array(
 if (is_front_page()) {
 	$arg['offset'] = 3;
 }
-
 // category page
 if (is_category()) {
 	$cat_ID = get_query_var('cat');
 	$arg['category'] = $cat_ID;
 }
+// tag page
+if (is_tag()) {
+	$tag_slug = get_query_var('tag'); 
+	$arg['tax_query'] =  array(
+		array(
+			'taxonomy' => 'post_tag',
+			'field' => 'slug',
+			'terms' => $tag_slug
+		)
+	);
+}
+// author page
+if (is_author()){ 
+	$author_ID = get_the_author_meta('ID');
+   	$arg['author'] = $author_ID;
+} 
 
 $posts = get_posts($arg);
 ?>

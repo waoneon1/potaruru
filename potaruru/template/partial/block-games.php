@@ -19,17 +19,21 @@ if (is_page_template( 'template-product-page.php' )) {
 		'terms' => $filter 
 	));
 
-	$args_latest = array(
+	// get 3 oldest post
+	$args_oldest = array(
 		'posts_per_page'	=> 3,
 		'post_type' 		=> $post_type,
 		'post_status'       => 'publish',
-		'order' 			=> 'ASC',
-		'orderby' 			=> 'meta_value_num',
-		'meta_key'			=> 'product_page_release_date'
+		'meta_key'          => 'product_page_release_date',
+		'meta_value'        => date("Ymd"), 
+		'meta_compare'      => '>',
+		'orderby'           => 'meta_value',
+		'order'             => 'ASC'
 	);
-	if ($filter) $args_latest['tax_query'] = $args_tax;
-	$posts_master['latest'] = get_posts($args_latest);
+	if ($filter) $args_oldest['tax_query'] = $args_tax;
+	$posts_master['latest'] = get_posts($args_oldest);
 
+	// get all post exclude 3 oldest
 	$args_random = array(
 		'posts_per_page'	=> -1,
 		'post_type' 		=> $post_type,
@@ -47,6 +51,7 @@ if (is_page_template( 'template-product-page.php' )) {
 	<?php foreach ($posts_master as $posts): ?>
 		<?php foreach ($posts as $key => $post): ?>
 			<?php setup_postdata($post) ?>
+
 			<?php $pp 	= get_field("product_page") ?>
 			<?php $b 	= $pp['platform'] ?>
 			
