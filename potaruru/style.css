@@ -361,6 +361,17 @@ blockquote p {
 .pota-percentage {
 	position: block; 
 }
+.single-product_post {
+
+}
+@media (max-width: 500px){
+    .single-product_post .post-md .post-thumbnail img {
+        width: 100%;
+    }
+    .single-product_post .post-md {
+        width: 100%;
+    }
+}
 @media (min-width: 768px) {
 	.pota-percentage {
 		position: absolute; 

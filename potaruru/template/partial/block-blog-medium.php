@@ -47,7 +47,7 @@ if ($have_posts) {
     			<div class="post-block">
     				<h2 class="post-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
     				<?php pota_component('post-meta') ?>
-    				<?php pota_blurb_autofill() ?>
+    				<?php //pota_blurb_autofill() ?>
     			</div>
     		</div>
     	<?php endforeach ?>
