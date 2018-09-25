@@ -68,10 +68,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	?>
 </li>
 <?php else: ?>
+
 <div class="col-12 col-sm-6 col-md-3">
 	<div class="card card-review" style="margin-bottom: 30px;">
 		<div class="card-img">
-			<a href="<?php get_the_permalink() ?>" class="woocommerce-LoopProduct-link">
+			<a href="<?php echo get_permalink($product->id) ?>" class="woocommerce-LoopProduct-link">
 				<span><?php woocommerce_template_loop_rating() ?></span>
 				<?php woocommerce_template_loop_product_thumbnail() ?>
 			</a>
@@ -79,7 +80,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		</div>
 		<div class="card-block">
 			<h4 class="card-title">
-				<a href="<?php get_the_permalink() ?>"><?php echo get_the_title() ?></a>
+				<a href="<?php echo get_permalink($product->id) ?>"><?php echo get_the_title() ?></a>
 			</h4>
 			<p><?php woocommerce_template_loop_price() ?></p>
 			<?php woocommerce_template_loop_add_to_cart() ?>
