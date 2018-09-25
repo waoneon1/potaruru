@@ -1,0 +1,42 @@
+/*--------------------------------------------------------------
+# Woo
+--------------------------------------------------------------*/
+.page-item.active .page-link {
+    background-color: #2575dc !important;
+    border-color: #2575dc !important;
+}
+.woocommerce .products .star-rating {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.woocommerce .star-rating span::before {
+    color: #FFC107;
+}
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+    font-size: 100%;
+    float: right;
+    margin: 0;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: 4px;
+    font-weight: 700;
+    border-radius: 3px;
+    left: auto;
+    color: #517751;
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover {
+    background-color: transparent;
+    text-decoration: none;
+    background-image: none;
+    color: #8fae1b;
+}

@@ -79,6 +79,8 @@ if ( ! function_exists( 'pota_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		add_theme_support( 'woocommerce' );
 	}
 endif;
 add_action( 'after_setup_theme', 'pota_setup' );
@@ -135,6 +137,7 @@ function pota_scripts() {
 	wp_enqueue_style( 'pota-custom', get_template_directory_uri() . '/src/css/custom.css' );
 	wp_enqueue_style( 'pota-theme', get_template_directory_uri() . '/src/css/theme.css' );
 	wp_enqueue_style( 'pota-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'pota-woo-style', get_template_directory_uri() . '/style-woocommerce.css' );
 
 
 	// vendor js
@@ -179,6 +182,11 @@ require get_template_directory() . '/inc/post-types/products.php';
  *  Image Size
  */
 require get_template_directory() . '/inc/pota-image-size.php';
+
+/**
+ *  Pagination
+ */
+require get_template_directory() . '/inc/pota-pagination.php';
 
 /**
  *  Post Type Function
