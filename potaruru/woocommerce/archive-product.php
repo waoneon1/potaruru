@@ -37,8 +37,10 @@ get_header( 'shop' ); ?>
 		<div class="hero-block text-left">
 			<h2 class="hero-title">Potaruru <?php woocommerce_page_title() ?></h2>
 			<p>Potaruru store, mods & add-ons - to make your gaming experience perfect</p>
-			<a class="btn btn-outline-default btn-shadow m-l-10 btn-md btn-rounded btn-lg" href="#" target="_blank" role="button">
-				Chart <i class="fa fa-shopping-cart"></i>
+			<a class="pota-cart btn btn-outline-default btn-shadow btn-md btn-rounded btn-lg pota-cart" href="<?php echo WC()->cart->get_cart_url(); ?>" target="_blank" role="button">
+				<div class="badge pota-badge-cart"><?php echo WC()->cart->get_cart_contents_count() ?></div>
+				<i class="fa fa-shopping-cart"></i>
+				My Cart : <?php echo WC()->cart->get_cart_total() ?>
 			</a>
 		</div>
 	</div>

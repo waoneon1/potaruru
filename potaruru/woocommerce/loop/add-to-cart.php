@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
-$args['class'] = ' btn btn-instagram btn-shadow btn-effect btn-sm m-t-10';
+$args['class'] .= ' btn btn-instagram btn-shadow btn-effect btn-sm';
 $text_title = ($product->add_to_cart_text() == 'Add to cart') ? ' <i class="fa fa-shopping-cart"></i>' : '';
 echo apply_filters( 'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
 	sprintf( '<div class="text-center"><a href="%s" data-quantity="%s" class="%s" %s %s>%s</a></div>',

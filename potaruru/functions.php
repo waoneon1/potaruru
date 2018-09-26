@@ -238,3 +238,19 @@ function oembed_youtube_add_wrapper($return, $data, $url) {
         return $return;
     }
 }
+
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+    ob_start();
+    ?>
+    <a class="pota-cart btn btn-outline-default btn-shadow btn-md btn-rounded btn-lg pota-cart" href="<?php echo WC()->cart->get_cart_url(); ?>" target="_blank" role="button">
+    	<div class="badge pota-badge-cart"><?php echo WC()->cart->get_cart_contents_count() ?></div>
+    	<i class="fa fa-shopping-cart"></i>
+    	My Cart : <?php echo WC()->cart->get_cart_total() ?>
+    </a> 
+    <?php
+    $fragments['a.pota-cart'] = ob_get_clean();
+
+    return $fragments;
+}
