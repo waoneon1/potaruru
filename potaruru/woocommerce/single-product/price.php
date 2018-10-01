@@ -1,10 +1,8 @@
 <?php
 /**
- * Proceed to checkout button
+ * Single Product Price
  *
- * Contains the markup for the proceed to checkout button on the cart.
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/cart/proceed-to-checkout-button.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product/price.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -15,14 +13,14 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.4.0
+ * @version 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	exit; // Exit if accessed directly
 }
-?>
 
-<a href="<?php echo esc_url( wc_get_checkout_url() );?>" class="checkout-button alt wc-forward btn btn-success">
-	<?php esc_html_e( 'Proceed to checkout', 'woocommerce' ); ?>
-</a>
+global $product;
+
+?>
+<p class="price"><?php echo $product->get_price_html(); ?></p>

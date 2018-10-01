@@ -126,3 +126,27 @@ a.pota-cart {
     color: #949494!important;
     background: transparent;
 }
+
+/*chart*/
+.woocommerce-cart .woocommerce-cart-form .actions .coupon {
+    display: inline-block;
+}
+.coupon .form-control {
+    display: inline-block;
+    width: initial;%;
+}
+.woocommerce .quantity .qty {
+    width: 80px;
+    text-align: left;
+}
+
+/*single products*/
+.pota-single-sale.badge {
+    position: absolute;
+    top: 15px;
+    margin-left: 15px;
+    z-index: 1;
+    background-color: #e74c3c;
+    font-size: 20px;
+}
+

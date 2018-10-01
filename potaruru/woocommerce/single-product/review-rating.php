@@ -1,10 +1,8 @@
 <?php
 /**
- * Proceed to checkout button
+ * The template to display the reviewers star rating in reviews
  *
- * Contains the markup for the proceed to checkout button on the cart.
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/cart/proceed-to-checkout-button.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/review-rating.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -15,14 +13,16 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.4.0
+ * @version 3.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	exit; // Exit if accessed directly
 }
-?>
 
-<a href="<?php echo esc_url( wc_get_checkout_url() );?>" class="checkout-button alt wc-forward btn btn-success">
-	<?php esc_html_e( 'Proceed to checkout', 'woocommerce' ); ?>
-</a>
+global $comment;
+$rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
+
+if ( $rating && 'yes' === get_option( 'woocommerce_enable_review_rating' ) ) {
+	echo wc_get_rating_html( $rating );
+}
