@@ -19,11 +19,22 @@ get_header();
 
 			echo "<section>";
 				get_template_part( 'template/template-parts/content', get_post_type() );
-			echo "</section>";
+
+				?>
+				
+			<?php echo "</section>";
 
 		endwhile; // End of the loop.
 		?>
-
+		<section class="demo dynamicContent">
+			<div id="content">
+				
+			</div>
+			<div id="loader">
+				LOADING...
+			</div>
+		</section>
+		
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

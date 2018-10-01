@@ -144,6 +144,8 @@ function pota_scripts() {
 	wp_enqueue_script( 'pota-jquery', get_template_directory_uri() . '/src/plugins/jquery/jquery-3.2.1.min.js', array(), '', true);
 	wp_enqueue_script( 'pota-popper', get_template_directory_uri() . '/src/plugins/popper/popper.min.js', array(), '', true);
 	wp_enqueue_script( 'pota-bootstrap', get_template_directory_uri() . '/src/plugins/bootstrap/js/bootstrap.min.js', array(), '', true);
+	wp_enqueue_script( 'pota-scrollmagic', get_template_directory_uri() . '/js/ScrollMagic.min.js', array(), '', true);
+	wp_enqueue_script( 'pota-infscroll', get_template_directory_uri() . '/js/infscroll.js', array(), '', true);
 
 	// plugins js
 	wp_enqueue_script( 'pota-lightbox', get_template_directory_uri() . '/src/plugins/lightbox/lightbox.js', array(), '', true);
@@ -254,3 +256,43 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
     return $fragments;
 }
+
+
+function infscroll()
+{
+	//$_POST['data']
+    $query = new WP_Query([
+        'posts_per_page'      => 1,
+        'post_type'           => 'post',
+    ]);
+
+    $next = count($query->posts) > 9;
+    if ($query->have_posts()) {
+        ob_start();
+       while ( $query->have_posts() ) :
+   			$query->the_post();
+   			echo "<section>";
+   				get_template_part( 'template/template-parts/content', get_post_type() );
+			echo "</section>";
+   		endwhile; // End of the loop.
+        wp_reset_query();
+
+        $html = ob_get_clean();
+        send_origin_headers();
+        @header( 'Content-Type: text/json; charset=' . get_option( 'blog_charset' ) );
+        wp_send_json_success([
+            'html' => $html,
+            'page' => $page,
+            'setting' => $settings,
+            'next_available' => $next
+        ]);
+    } else {
+        wp_send_json_error([
+            'reason' => 'nomore'
+        ]);
+    }
+
+    die;
+}
+add_action('wp_ajax_infscroll', 'infscroll' );
+add_action('wp_ajax_nopriv_infscroll', 'infscroll' );
