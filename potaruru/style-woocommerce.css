@@ -150,3 +150,7 @@ a.pota-cart {
     font-size: 20px;
 }
 
+/*Checkout*/
+.woocommerce-billing-fields .form-row {
+    display: block; 
+}

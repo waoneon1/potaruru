@@ -210,6 +210,11 @@ require get_template_directory() . '/inc/pota-view-count.php';
 require get_template_directory() . '/inc/pota-walker-nav-menu.php';
 
 /**
+ *  Woocommerce Function
+ */
+require get_template_directory() . '/inc/pota-woo-function.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
