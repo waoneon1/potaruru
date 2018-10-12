@@ -64,6 +64,7 @@
 				</div>
 			</div>
 		</div>
+		<progress value="0"></progress>
 	</header> <!-- #header -->
 
 	<div id="content" class="site-content">

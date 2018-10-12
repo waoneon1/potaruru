@@ -76,5 +76,26 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools --> 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ba1dde5736f4214"></script>
 
+<?php if (is_single()): ?>
+	<script type="text/javascript">
+		$( document ).ready(function() {
+
+			var winHeight = $(window).height(), 
+			docHeight = $('article').height(),
+			progressBar = $('progress'),
+			max, value;
+			// console.log(docHeight);
+			/* Set the max scrollable area */
+			max = docHeight - winHeight;
+			progressBar.attr('max', max);
+
+			$( document ).scroll(function() {
+				value = $(window).scrollTop();
+				progressBar.attr('value', value);
+			});
+		});
+	</script>
+<?php endif ?>
+
 </body>
 </html>

@@ -7,16 +7,32 @@
  * @package Potaruru
  */
 
-?>
+global $numpages;
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+$paged = 1;
+//pagination
+if ( get_query_var( 'paged' ) )
+    $paged = get_query_var('paged');
+else if ( get_query_var( 'page' ) )
+    $paged = get_query_var( 'page' );
+else
+    $paged = 1;
+
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+	<div class="pota-data-nextpage"
+		data-url="<?php echo get_permalink($post->ID) ?>" 
+		data-page="<?php echo $paged ?>"
+		data-maxpage="<?php echo $numpages ?>"
+		data-id="<?php echo $post->ID ?>">	
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-1 hidden-md-down">
 				<!-- widget share -->
 				<?php get_template_part( 'template/partial/widget', 'share' ) ?>
 			</div>
-			<div class="col-lg-10">
+			<div class="col-lg-10 progress-wrap">
 				
 				<!-- post -->
 				<div class="post post-single">
@@ -28,7 +44,9 @@
 					</div>
 
 					<?php pota_post_thumbnail($post->ID, '945x550', $post->title) ?>
-					<?php echo do_shortcode('[ajax_load_more nextpage="true" nextpage_urls="true" nextpage_scroll="0:30"  pause="true" pause_override="true"  nextpage_post_id="'. get_the_ID() .'" transition="fade" container_type="div" images_loaded="true" button_label="Next Page"]'); ?>
+					<?php //echo do_shortcode('[ajax_load_more nextpage="true" nextpage_urls="true" nextpage_scroll="0:30"  pause="true" pause_override="true"  nextpage_post_id="'. get_the_ID() .'" transition="fade" container_type="div" images_loaded="true" button_label="Next Page"]'); ?>
+
+					<?php the_content() ?>
 				</div>
 
 				<?php $href = $btn_effect = '' ?>
@@ -46,7 +64,9 @@
 					<?php pota_component( 'social-share' ) ?>
 				</div>
 
-				<?php get_template_part( 'template/partial/feature', 'showmore' ) ?>
+				<?php if ($paged == $numpages): ?>
+					<?php get_template_part( 'template/partial/feature', 'showmore' ) ?>
+				<?php endif ?>
 
 				<?php if ( comments_open() || get_comments_number() ) :
 					//comments_template(); 
@@ -55,4 +75,5 @@
 			</div>
 		</div>
 	</div>
+	<div id="loader"></div>
 </article><!-- #post-<?php the_ID(); ?> -->
