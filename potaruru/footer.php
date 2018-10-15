@@ -95,6 +95,24 @@
 			});
 		});
 	</script>
+
+	<input id="backbuttonstate" type="text" value="0" style="display:none;" />
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+		   var ibackbutton = document.getElementById("backbuttonstate");
+		   if (ibackbutton.value == "0") {
+		     // Page has been loaded for the first time - Set marker
+		     ibackbutton.value = "1";
+		     console.log('First time load');
+		   } else {
+		     // Back button has been fired.. Do Something different..
+		     console.log('Previously loaded - Returned from Back button');
+		     setTimeout(function(){ window.scrollTo(0, 0) }, 1000);
+		     
+		   }
+		}, false);
+	</script>
+
 <?php endif ?>
 
 </body>

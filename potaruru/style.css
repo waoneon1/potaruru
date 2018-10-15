@@ -260,6 +260,30 @@ blockquote p {
     background-color: rgb(77, 194, 71);
     color: #fff;
 }
+
+.pota-prev-page {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    background-color: #d6d6d6;
+    color: #242629;
+    text-align: center;
+    opacity: .5;
+}
+.pota-prev-page:hover, 
+.pota-prev-page:active, 
+.pota-prev-page:focus {
+    opacity: 1;
+    color: #fff;
+}
+
 /*--------------------------------------------------------------
 ## Comment
 --------------------------------------------------------------*/
