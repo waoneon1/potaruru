@@ -32,8 +32,8 @@
 				<?php the_field('copyright', 'option') ?>
 			</div>
 		</div>
+		<div id="pota-loader"></div>
 	</footer> <!-- #footer -->
-
 
 </div><!-- #page -->
 
@@ -81,7 +81,7 @@
 		$( document ).ready(function() {
 
 			var winHeight = $(window).height(), 
-			docHeight = $('article').height(),
+			docHeight = $('#page').height(),
 			progressBar = $('progress'),
 			max, value;
 			// console.log(docHeight);

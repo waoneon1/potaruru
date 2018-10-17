@@ -3,7 +3,7 @@
     // init controller
     var controller = new ScrollMagic.Controller();
     // build scene
-    var scene = new ScrollMagic.Scene({triggerElement: "article #loader", triggerHook: "onEnter"})
+    var scene = new ScrollMagic.Scene({triggerElement: "#pota-loader", triggerHook: "onEnter"})
     .addTo(controller)
     .on("enter", function (e) {
         

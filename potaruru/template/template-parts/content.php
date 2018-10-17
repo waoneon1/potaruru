@@ -88,5 +88,12 @@ else
 			</div>
 		</div>
 	</div>
-	<div id="loader"></div>
+	
+	<?php if ($paged != $numpages): ?>
+		<div class="alert alert-info" role="alert" style="margin: 10px; text-align: center;">
+			<center>Scroll untuk melanjutkan</center>
+		</div>
+	<?php endif ?>
+
 </article><!-- #post-<?php the_ID(); ?> -->
+
